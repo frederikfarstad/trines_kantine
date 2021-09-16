@@ -21,7 +21,7 @@ a {
 }
 
 #menu {
-    width: 80ch;
+    width: 65%;
     margin: auto;
 }
 
@@ -43,7 +43,7 @@ a {
 
 .box {
     border: 1px dotted black;
-    width: 90ch;
+    width: 70%;
     margin: auto;
     margin-bottom: 10px;
 }
@@ -52,3 +52,7 @@ a {
     text-align: center;
 }
 
+.box p {
+    text-align: left;
+    padding: 5%;
+}
