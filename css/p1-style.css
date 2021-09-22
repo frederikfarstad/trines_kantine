@@ -56,9 +56,11 @@ header img {
 .box h2 {
     text-align: center;
     margin-bottom: 0px;
+    color: white;
 }
 
-.box p {
+.box p, .box ul {
     text-align: left;
     padding: 5px 5%;
+    color: white;
 }
