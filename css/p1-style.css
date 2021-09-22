@@ -5,6 +5,10 @@ body {
     line-height: 1.5;
 }
 
+img {
+    height: 400px;
+}
+
 a {
     text-decoration: none;
     color: black;
@@ -45,19 +49,22 @@ header img {
 }
 
 .box {
-    border: 3px solid #2b4f61;
     border-radius: 5px;
-    width: 100ch;
+    max-width: 100ch;
     margin: auto;
     margin-bottom: 10px;
+    background-color: #2b4f61;
+    padding: 8px 1px;
 }
 
 .box h2 {
     text-align: center;
     margin-bottom: 0px;
+    color: white;
 }
 
-.box p {
+.box p, .box ul {
     text-align: left;
     padding: 5px 5%;
+    color: white;
 }
