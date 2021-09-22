@@ -44,11 +44,12 @@ header img {
 }
 
 .box {
-    border: 3px solid #2b4f61;
     border-radius: 5px;
     width: 100ch;
     margin: auto;
     margin-bottom: 10px;
+    background-color: #2b4f61;
+    padding: 8px 1px;
 }
 
 .box h2 {
