@@ -63,6 +63,10 @@ body{
     color: #FAF9F9;
 }
 
+.roundBox{
+    border-radius: 15px;
+}
+
 .blackText{
     color: #000000;
 }
