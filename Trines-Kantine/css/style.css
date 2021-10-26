@@ -84,7 +84,6 @@ body{
 }
 #footer {
     position: absolute;
-    bottom: 0;
     display: flex;
     justify-content: center;
     background-color: #555B6E;
