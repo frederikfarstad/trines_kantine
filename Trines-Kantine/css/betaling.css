@@ -19,8 +19,8 @@
 }
 
 #userData > label > input{
-    width: 300px;
-    height: 30px;
+    width: 70%;
+    height: 50px;
     margin: 7px 0px 0px 7px; 
     border-radius: 5px;
 }
@@ -36,6 +36,10 @@
     width: 40%;
     text-align: center;
     padding: 20px;
+}
+
+#payment > h1{
+    font-weight: normal;
 }
 
 #paymentMethod > h1{ 
@@ -55,4 +59,41 @@
 
 .whiteInputDiv > label > input{
     margin: 3px auto 3px 5px
+}
+
+
+
+#paymentInformation{
+    text-align: right;
+}
+
+#paymentInformation > label > input{
+    width: 70%;
+    height: 50px;
+    margin: 7px 0px 0px 7px; 
+    border-radius: 5px;
+}
+
+
+#paymentInformation > h1{ 
+    padding: 20px 0px 5px 0px;
+    text-align: left;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+#betalKnapp{
+    background-color: #89B0AE;
+    border: 0;
+    color: #FAF9F9;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 30px;
+    padding: 25px 60px;
+    border-radius: 50px;
+}
+
+#inCartDetails > h1{
+    font-weight: normal;
 }
