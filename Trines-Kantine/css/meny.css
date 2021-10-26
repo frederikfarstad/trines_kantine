@@ -1,0 +1,12 @@
+/* Produkter */
+
+#products{
+    width: 50%;
+    padding: 20px;
+}
+
+.produkt_Boks{
+    background-color: #FFD6BA;
+    margin: 8px 0;
+    border-radius: 4%;
+}
