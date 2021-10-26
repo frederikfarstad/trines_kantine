@@ -1,12 +1,20 @@
 #inCartDetails{
-    width: 50%;
+    width: 40%;
 }
 
 #delivery{
-    width: 50%;
+    width: 40%;
+    text-align: center;
+    padding: 20px;
 }
 
 #payment{
-    width: 50%;
+    width: 40%;
 }
 
+.whiteInputDiv{
+    margin: auto;
+    background-color: #FAF9F9;
+    width: 70%;
+    text-align: center
+}

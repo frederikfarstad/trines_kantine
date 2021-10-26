@@ -11,17 +11,75 @@
 <body>
 
     <div id="delivery" class="roundBox bgBlack">
-        <fieldset>
-            <legend>Levering</legend>
-        </fieldset>
+        <h1 class="whiteText">Levering:</h1>
+        <form>
+            <label class="whiteText"> Fornavn
+                <input type="text" name="fornavn" id="firstname" placeholder="skriv her" required>
+            </label>
+
+            <br>
+
+            <label class="whiteText"> Etternavn
+                <input type="text" name="etternavn" id="lastname" placeholder="skriv her" required>
+            </label>
+
+            <br>
+
+            <label class="whiteText"> Adresse
+                <input type="text" name="adresse" id="address" placeholder="skriv her" required>
+            </label>
+
+            <br>
+
+            <label class="whiteText"> Postnummer
+                <input type="number" name="postnummer" id="postalnumber" placeholder="skriv her" required>
+            </label>
+
+            <br>
+
+            <label class="whiteText"> Telefon
+                <input type="number" name="telefon" id="phone" placeholder="skriv her" minlength="8" required>
+            </label>
+
+            <br>
+
+            <label class="whiteText"> Mail
+                <input type="email" name="mail" placeholder="skriv her" id="mail" required>
+            </label>
+
+            <br>
+            
+            <div>
+                <h1 class="whiteText">Leveringsmetode</h1>
+                <div class="whiteInputDiv">
+                    <label> 
+                        <input type="radio" name="delivery" value="hjemlevering" checked>
+                    </label> Hjemlevering &nbsp;&nbsp;&nbsp; +49,-
+                    <br>
+                    <label> 
+                        <input type="radio" name="delivery" value="hente_selv">
+                    </label> Hente selv &nbsp;&nbsp;&nbsp; +0,-
+                    <br>
+                    <label> 
+                        <input type="radio" name="delivery" value="baat">
+                    </label> Båt &nbsp;&nbsp;&nbsp; +99,-
+                    <br>
+                    <label> 
+                        <input type="radio" name="delivery" value="trine_personal">
+                    </label> Trine personal delivery &nbsp;&nbsp;&nbsp; +499,-
+                </div>
+            </div>
+            
+        </form>
+
     </div>
 
     <div id="inCartDetails" class="roundBox bgBlack">
-        <h1>I Handlevogn</h1>
+        <h1>I Handlevogn:</h1>
     </div>
 
     <div id="payment" class="roundBox bgBlack">
-        <h1>Betalingsmåte</h1>
+        <h1>Betalingsmåte:</h1>
     </div>
 
 </body>
