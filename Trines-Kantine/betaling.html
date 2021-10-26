@@ -13,44 +13,47 @@
     <div id="delivery" class="roundBox bgBlack">
         <h1 class="whiteText">Levering:</h1>
         <form>
-            <label class="whiteText"> Fornavn
-                <input type="text" name="fornavn" id="firstname" placeholder="skriv her" required>
-            </label>
-
-            <br>
-
-            <label class="whiteText"> Etternavn
-                <input type="text" name="etternavn" id="lastname" placeholder="skriv her" required>
-            </label>
-
-            <br>
-
-            <label class="whiteText"> Adresse
-                <input type="text" name="adresse" id="address" placeholder="skriv her" required>
-            </label>
-
-            <br>
-
-            <label class="whiteText"> Postnummer
-                <input type="number" name="postnummer" id="postalnumber" placeholder="skriv her" required>
-            </label>
-
-            <br>
-
-            <label class="whiteText"> Telefon
-                <input type="number" name="telefon" id="phone" placeholder="skriv her" minlength="8" required>
-            </label>
-
-            <br>
-
-            <label class="whiteText"> Mail
-                <input type="email" name="mail" placeholder="skriv her" id="mail" required>
-            </label>
-
-            <br>
+            <div id="userData">
+                <label class="whiteText"> Fornavn
+                    <input type="text" name="fornavn" id="firstname" placeholder="skriv her" required>
+                </label>
+    
+                <br>
+    
+                <label class="whiteText"> Etternavn
+                    <input type="text" name="etternavn" id="lastname" placeholder="skriv her" required>
+                </label>
+    
+                <br>
+    
+                <label class="whiteText"> Adresse
+                    <input type="text" name="adresse" id="address" placeholder="skriv her" required>
+                </label>
+    
+                <br>
+    
+                <label class="whiteText"> Postnummer
+                    <input type="number" name="postnummer" id="postalnumber" placeholder="skriv her" required>
+                </label>
+    
+                <br>
+    
+                <label class="whiteText"> Telefon
+                    <input type="number" name="telefon" id="phone" placeholder="skriv her" minlength="8" required>
+                </label>
+    
+                <br>
+    
+                <label class="whiteText"> Mail
+                    <input type="email" name="mail" placeholder="skriv her" id="mail" required>
+                </label>
+    
+                <br>
+            </div>
             
-            <div>
-                <h1 class="whiteText">Leveringsmetode</h1>
+            
+            <div id="deliveryMethod">
+                <h1 class="whiteText">Leveringsmetode:</h1>
                 <div class="whiteInputDiv">
                     <label> 
                         <input type="radio" name="delivery" value="hjemlevering" checked>
@@ -79,7 +82,31 @@
     </div>
 
     <div id="payment" class="roundBox bgBlack">
-        <h1>Betalingsmåte:</h1>
+        <h1 class="whiteText">Betaling:</h1>
+
+        <form>
+            <div id="paymentMethod">
+                <h1 class="whiteText">Betalingsmåte:</h1>
+                <div class="whiteInputDiv">
+                    <label> 
+                        <input type="radio" name="paymentMethodInput" value="Visa" checked>
+                    </label> Visa
+                    <br>
+                    <label> 
+                        <input type="radio" name="paymentMethodInput" value="Mastercard">
+                    </label> Mastercard
+                    <br>
+                    <label> 
+                        <input type="radio" name="paymentMethodInput" value="Klarna">
+                    </label> Klarna
+                    <br>
+                    <label> 
+                        <input type="radio" name="paymentMethodInput" value="Vipps">
+                    </label> Vipps
+                </div>
+            </div>
+        </form>
+
     </div>
 
 </body>

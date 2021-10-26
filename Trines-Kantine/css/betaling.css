@@ -1,5 +1,7 @@
 #inCartDetails{
     width: 40%;
+    text-align: center;
+    padding: 20px;
 }
 
 #delivery{
@@ -8,13 +10,49 @@
     padding: 20px;
 }
 
+#delivery > h1{
+    font-weight: normal;
+}
+
+#userData{
+    text-align: right;
+}
+
+#userData > label > input{
+    width: 300px;
+    height: 30px;
+    margin: 7px 0px 0px 7px; 
+    border-radius: 5px;
+}
+
+#deliveryMethod > h1{
+    padding: 20px 0px 5px 0px;
+    text-align: left;
+    font-size: 25px;
+    font-weight: normal;
+}
+
 #payment{
     width: 40%;
+    text-align: center;
+    padding: 20px;
+}
+
+#paymentMethod > h1{ 
+    padding: 20px 0px 5px 0px;
+    text-align: left;
+    font-size: 25px;
+    font-weight: normal;
 }
 
 .whiteInputDiv{
-    margin: auto;
     background-color: #FAF9F9;
-    width: 70%;
-    text-align: center
+    width: 100%;
+    text-align: left;
+    border-radius: 5px;
+    
+}
+
+.whiteInputDiv > label > input{
+    margin: 3px auto 3px 5px
 }
