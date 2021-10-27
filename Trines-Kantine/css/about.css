@@ -1,29 +1,51 @@
 
-section{
-    position: relative;
+.grid-container{
+    display: grid;
+    grid-gap: 50px;
+    margin: 10px;
+    text-align: center;
+}
+.item1{
+
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 9;
+}
+.item2{
+
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 5;
+}
+.item3{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 5;
+    grid-row-end: 9;
+}
+
+
+#hovedd{
+    position: fixed;
     width: 50%; 
     text-align: center;
 }
+
 
 #fasade{
     display: block;
     margin-left: auto;
     margin-right: auto
 }
-/* #sec1{
-    
-}
-#sec2{
-    
 
-} */
-#sec3{
-    max-width: 520px;
-    max-height: fit-content;
-
-}
 #kart{
     width: 500px;
     margin-bottom: 10px;
     
+}
+
+h1{
+    text-align: center;
 }
