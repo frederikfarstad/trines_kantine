@@ -1,38 +1,36 @@
 /* Produkter */
 
-section{
-    width: 50%;
+#content{
+    width: 100%;
+    display: flex;
 }
 
 #products{
+    flex: 1;
     padding: 20px;
     font-size: 12px;
 }
-
+#handlekurv{
+    flex: 1;
+    padding: 20px;
+    font-size: 12px;
+}
 .produkt_Boks{
     background-color: #FFD6BA;
     margin: 8px 50px 8px 0;
     border-radius: 12px;
     overflow: auto;
-    display:block;
+    display:inline-block;
     padding: 5px;
     text-align: left;
 }
-/* .produkt_Boks{
-    /* display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: auto auto auto;
-}  */
 .produkt_Boks > img{
-    /* grid-row: 1 / 4;
-    grid-column: 1 / 3;*/
     width: 200px;
     height: auto; 
     float: left;
 }
 .produkt_Boks > button{
     float: right;
-    /* display: inline-block; */
     padding: 7px 15px;
     font-size: 20px;
     cursor: pointer;
@@ -54,4 +52,35 @@ section{
 }
 .produkt_Boks > p{
     margin: 10px 0px;
+}
+#handlekurv_Boks{
+    background-color: #555B6E;
+    border-radius: 12px;
+    color: white !important;
+    text-align: center;
+    padding: 5px;
+    width: 60%;
+    margin: 20px auto;
+}
+#handlekurv_Boks_Header{
+    padding: 7.5px;
+}
+#handlekurv_Content{
+    min-height: 300px;
+}
+#handlekurv_Footer{
+    font-size: 15px;
+}
+#handlekurv_Footer > button{
+    padding: 7px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #5ba35d;
+    border: none;
+    border-radius: 15px;
+    margin: 7.5px;
 }
