@@ -56,19 +56,19 @@
                     <h1 class="whiteText">Leveringsmetode:</h1>
                     <div class="whiteInputDiv">
                         <label> 
-                            <input type="radio" name="delivery" value="hjemlevering" checked>
+                            <input type="radio" name="delivery" value="hjemlevering" onclick="priceCalculation(this)" checked>
                         </label> Hjemlevering &nbsp;&nbsp;&nbsp; +49,-
                         <br>
                         <label> 
-                            <input type="radio" name="delivery" value="hente_selv">
+                            <input type="radio" name="delivery" value="hente_selv" onclick="priceCalculation(this)">
                         </label> Hente selv &nbsp;&nbsp;&nbsp; +0,-
                         <br>
                         <label> 
-                            <input type="radio" name="delivery" value="baat">
+                            <input type="radio" name="delivery" value="baat" onclick="priceCalculation(this)">
                         </label> Båt &nbsp;&nbsp;&nbsp; +99,-
                         <br>
                         <label> 
-                            <input type="radio" name="delivery" value="trine_personal">
+                            <input type="radio" name="delivery" value="trine_personal" onclick="priceCalculation(this)">
                         </label> Trine personal delivery &nbsp;&nbsp;&nbsp; +999,-
                     </div>
                 </div>
@@ -87,11 +87,14 @@
 
                 <div id="deliveryStats">
                     <p id="deliveryStatsText" class="whiteText">Levering</p>
-                    <p id="deliveryStatsCost" class="whiteText">49,-</p>
+                    <output id="deliveryStatsCost" class="whiteText">49,-</output>
                 </div>
 
-                <div id="totalCost">
+                <p class="whiteText">---------------------------</p>
+
+                <div id="totalStats">
                     <p id="totalCostText" class="whiteText">Total: </p>
+                    <output id="totalCost" class="whiteText">0,-</output>
                 </div>
             </div>
         </div>

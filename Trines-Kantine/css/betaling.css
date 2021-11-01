@@ -135,14 +135,14 @@
     text-align:center;
 }
 
-
-
-#totalCostText{
-    text-align:right;
-    margin-right: 50px;
+#totalStats{
+    display:flex;
+    justify-content: space-between;
+    padding-inline: 125px;
 }
 
 #deliveryStats{
     display:flex;
     justify-content: space-between;
+    padding-inline: 125px;
 }
