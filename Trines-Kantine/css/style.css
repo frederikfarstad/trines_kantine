@@ -82,3 +82,31 @@ body{
 .bgGreen{
     background-color: #89B0AE;
 }
+#footer {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    background-color: #555B6E;
+    width: 100%;
+    height: auto;
+}
+#text_content{
+    position: relative;
+    height: 10%;
+    margin-top: 4%;
+}
+
+#text_content > p {
+    padding: 5px;
+    color: #BEE3DB;
+    text-align: center;
+}
+#images {
+    text-align: center;
+    display: block;
+}
+
+.soMe {
+    width: 35px;
+    height: 35px;
+}
