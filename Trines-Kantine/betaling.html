@@ -4,132 +4,153 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/betaling.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/betaling.css">
     <title>Document</title>
 </head>
 <body>
+    <div id="wrapper">
+        <div id="delivery" class="roundBox bgBlack">
+            <h1 class="whiteText">Levering:</h1>
+            <form>
+                <div id="userData">
+                    <label class="whiteText"> Fornavn
+                        <input type="text" name="fornavn" id="firstname" placeholder="skriv her" required>
+                    </label>
+        
+                    <br>
+        
+                    <label class="whiteText"> Etternavn
+                        <input type="text" name="etternavn" id="lastname" placeholder="skriv her" required>
+                    </label>
+        
+                    <br>
+        
+                    <label class="whiteText"> Adresse
+                        <input type="text" name="adresse" id="address" placeholder="skriv her" required>
+                    </label>
+        
+                    <br>
+        
+                    <label class="whiteText"> Postnummer
+                        <input type="number" name="postnummer" id="postalnumber" placeholder="skriv her" required>
+                    </label>
+        
+                    <br>
+        
+                    <label class="whiteText"> Telefon
+                        <input type="number" name="telefon" id="phone" placeholder="skriv her" minlength="8" required>
+                    </label>
+        
+                    <br>
+        
+                    <label class="whiteText"> Mail
+                        <input type="email" name="mail" placeholder="skriv her" id="mail" required>
+                    </label>
+        
+                    <br>
+                </div>
+                
+                
+                <div id="deliveryMethod">
+                    <h1 class="whiteText">Leveringsmetode:</h1>
+                    <div class="whiteInputDiv">
+                        <label> 
+                            <input type="radio" name="delivery" value="hjemlevering" checked>
+                        </label> Hjemlevering &nbsp;&nbsp;&nbsp; +49,-
+                        <br>
+                        <label> 
+                            <input type="radio" name="delivery" value="hente_selv">
+                        </label> Hente selv &nbsp;&nbsp;&nbsp; +0,-
+                        <br>
+                        <label> 
+                            <input type="radio" name="delivery" value="baat">
+                        </label> Båt &nbsp;&nbsp;&nbsp; +99,-
+                        <br>
+                        <label> 
+                            <input type="radio" name="delivery" value="trine_personal">
+                        </label> Trine personal delivery &nbsp;&nbsp;&nbsp; +999,-
+                    </div>
+                </div>
+                
+            </form>
 
-    <div id="delivery" class="roundBox bgBlack">
-        <h1 class="whiteText">Levering:</h1>
-        <form>
-            <div id="userData">
-                <label class="whiteText"> Fornavn
-                    <input type="text" name="fornavn" id="firstname" placeholder="    skriv her" required>
-                </label>
-    
-                <br>
-    
-                <label class="whiteText"> Etternavn
-                    <input type="text" name="etternavn" id="lastname" placeholder="    skriv her" required>
-                </label>
-    
-                <br>
-    
-                <label class="whiteText"> Adresse
-                    <input type="text" name="adresse" id="address" placeholder="    skriv her" required>
-                </label>
-    
-                <br>
-    
-                <label class="whiteText"> Postnummer
-                    <input type="number" name="postnummer" id="postalnumber" placeholder="    skriv her" required>
-                </label>
-    
-                <br>
-    
-                <label class="whiteText"> Telefon
-                    <input type="number" name="telefon" id="phone" placeholder="    skriv her" minlength="8" required>
-                </label>
-    
-                <br>
-    
-                <label class="whiteText"> Mail
-                    <input type="email" name="mail" placeholder="    skriv her" id="mail" required>
-                </label>
-    
-                <br>
-            </div>
-            
-            
-            <div id="deliveryMethod">
-                <h1 class="whiteText">Leveringsmetode:</h1>
-                <div class="whiteInputDiv">
-                    <label> 
-                        <input type="radio" name="delivery" value="hjemlevering" checked>
-                    </label> Hjemlevering &nbsp;&nbsp;&nbsp; +49,-
-                    <br>
-                    <label> 
-                        <input type="radio" name="delivery" value="hente_selv">
-                    </label> Hente selv &nbsp;&nbsp;&nbsp; +0,-
-                    <br>
-                    <label> 
-                        <input type="radio" name="delivery" value="baat">
-                    </label> Båt &nbsp;&nbsp;&nbsp; +99,-
-                    <br>
-                    <label> 
-                        <input type="radio" name="delivery" value="trine_personal">
-                    </label> Trine personal delivery &nbsp;&nbsp;&nbsp; +999,-
+        </div>
+
+        <div id="inCartDetails" class="roundBox bgBlack">
+            <h1 class="whiteText">I Handlevogn:</h1>
+            <div id="inCartWrapper">
+
+                <div id="foodType"></div>
+
+                <div id="foodStats"></div>
+
+                <div id="deliveryStats">
+                    <p id="deliveryStatsText" class="whiteText">Levering</p>
+                    <p id="deliveryStatsCost" class="whiteText">49,-</p>
+                </div>
+
+                <div id="totalCost">
+                    <p id="totalCostText" class="whiteText">Total: </p>
                 </div>
             </div>
-            
-        </form>
+        </div>
 
-    </div>
+        <div id="payment" class="roundBox bgBlack">
+            <h1 class="whiteText">Betaling:</h1>
 
-    <div id="inCartDetails" class="roundBox bgBlack">
-        <h1 class="whiteText">I Handlevogn:</h1>
-    </div>
-
-    <div id="payment" class="roundBox bgBlack">
-        <h1 class="whiteText">Betaling:</h1>
-
-        <form>
-            <div id="paymentMethod">
-                <h1 class="whiteText">Betalingsmåte:</h1>
-                <div class="whiteInputDiv">
-                    <label> 
-                        <input type="radio" name="paymentMethodInput" value="Visa" checked>
-                    </label> Visa
-                    <br>
-                    <label> 
-                        <input type="radio" name="paymentMethodInput" value="Mastercard">
-                    </label> Mastercard
-                    <br>
-                    <label> 
-                        <input type="radio" name="paymentMethodInput" value="Klarna">
-                    </label> Klarna
-                    <br>
-                    <label> 
-                        <input type="radio" name="paymentMethodInput" value="Vipps">
-                    </label> Vipps
+            <form>
+                <div id="paymentMethod">
+                    <h1 class="whiteText">Betalingsmåte:</h1>
+                    <div class="whiteInputDiv">
+                        <label> 
+                            <input type="radio" name="paymentMethodInput" value="Visa" checked>
+                        </label> Visa
+                        <br>
+                        <label> 
+                            <input type="radio" name="paymentMethodInput" value="Mastercard">
+                        </label> Mastercard
+                        <br>
+                        <label> 
+                            <input type="radio" name="paymentMethodInput" value="Klarna">
+                        </label> Klarna
+                        <br>
+                        <label> 
+                            <input type="radio" name="paymentMethodInput" value="Vipps">
+                        </label> Vipps
+                    </div>
                 </div>
-            </div>
 
-            <div id="paymentInformation">
-                <h1 class="whiteText">Kort:</h1>
-                <label class="whiteText"> Kortnummer
-                    <input type="number" name="cardnumber" id="kortnummer" placeholder="    kortnummer" required>
-                </label>
-    
+                <div id="paymentInformation">
+                    <h1 class="whiteText">Kort:</h1>
+                    <label class="whiteText"> Kortnummer
+                        <input type="number" name="cardnumber" id="kortnummer" placeholder="kortnummer" onchange="luhn()" required>
+                    </label>
+        
+                    <br>
+        
+                    <label class="whiteText"> Utløpsdato 
+                        <input type="text" name="expiredate" id="utløpsdato" pattern="([0-9]{2}[/]?){2}" placeholder="mm/yy" required>
+                    </label>
+        
+                    <br>
+        
+                    <label class="whiteText"> Sikkerhetskode
+                        <input type="number" name="securitycode" id="CCV" placeholder="sikkerhetskode" minlength="3" required>
+                    </label>
+                </div>
+                <button id="betalKnapp" onclick="pay()">Betal</button>
                 <br>
-    
-                <label class="whiteText"> Utløpsdato
-                    <input type="text" name="expiredate" id="utløpsdato" pattern="([0-9]{2}[/]?){2}" placeholder="    mm/yy" required>
-                </label>
-    
                 <br>
-    
-                <label class="whiteText"> Sikkerhetskode
-                    <input type="number" name="securitycode" id="CCV" placeholder="    sikkerhetskode" minlength="3" required>
-                </label>
-            </div>
-            <button id="betalKnapp" onclick="pay()">Betal</button>
-            <br>
-            <br>
-            <a href="https://www.kondomeriet.no/inspirasjon/artikler/kjopsbetingelser/" target="_blank" style="text-decoration: underline;">Se betalingsvilkår</a>
-        </form>
+                <a href="https://www.kondomeriet.no/inspirasjon/artikler/kjopsbetingelser/" target="_blank" style="text-decoration: underline;">Se betalingsvilkår</a>
+            </form>
+        </div>
+        <div id="fadedText">
+            <p>Håper det smaker!</p>
+        </div>
     </div>
 
+    <script src="js/footer.js"></script>
+    <script src="js/betaling.js"></script>
 </body>
 </html>
