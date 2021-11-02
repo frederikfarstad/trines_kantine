@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Reservasjon av bord</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reservasjon.css">
+    <script src="js/nav.js" defer></script>
+</head>
+
+<body>
+    <div id="navbar"></div>
+
+    <img src="img/reservasjon.jpg" id="resBilde" alt="Bilde av folk på restarurant">
+
+    <div id="ledigePlasserBoks" class="resBoks roundBox bgBlack whiteText">
+        <p>Antall ledige plasser: </p>
+        <div id=antallPlasser>22</div>
+        <p id="advarsel"></p>
+    </div>
+
+    <div id="resSkjemaBoks" class="resBoks roundBox bgBlack whiteText">
+        <p id="resBord">Reserver bord</p>
+        <form id="resForm" onsubmit="beregnLedige()">
+            <label for="fornavn" class="resLabel">
+                <span class="resSpan">Fornavn</span>
+                <input type="text" id="fornavn" class="resInput" name="fornavn" required>
+            </label>
+
+            <label for="etternavn" class="resLabel">
+                <span class="resSpan">Etternavn</span>
+                <input type="text" id="etternavn" class="resInput" name="etternavn" required>
+            </label>
+
+            <label for="antallValgt" class="resLabel">
+                <span class="resSpan">Antall personer</span>
+                <select name="antallValgt" id="antallValgt" form="resForm" required>
+                    <option value="">Velg antall</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select>
+            </label>
+
+            <label for="telefon" class="resLabel">
+                <span class="resSpan">Telefon</span>
+                <input type="tel" id="telefon" class="resInput" name="telefon" maxlength="8" pattern="[0-9]{8}"
+                    required>
+            </label>
+
+            <label for="behov" class="resLabel">
+                <span class="resSpan">Spesielle behov</span>
+                <textarea name="behov" id="behov" rows="4"
+                    placeholder="For eksempel allergener eller antall rullestoler"></textarea>
+            </label>
+
+            <label for="submit" class="resLabel">
+                <input type="submit" id="submit" class="resInput" value="Registrer reservasjon">
+            </label>
+        </form>
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="js/reservasjon.js"></script>
+
+    <script src="js/footer.js"></script>
+</body>
+
+</html>
