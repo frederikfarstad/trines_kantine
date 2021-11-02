@@ -82,6 +82,9 @@ body{
 .bgGreen{
     background-color: #89B0AE;
 }
+
+       /*  Footer  */
+
 #footer {
     position: absolute;
     display: flex;
