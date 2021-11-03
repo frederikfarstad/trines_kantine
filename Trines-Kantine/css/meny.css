@@ -69,6 +69,7 @@
     min-height: 300px;
 }
 #handlekurv_Footer{
+    margin-top: 10px;
     font-size: 15px;
 }
 #handlekurv_Footer > button{
