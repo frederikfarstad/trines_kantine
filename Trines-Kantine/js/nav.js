@@ -19,7 +19,7 @@ const linksEl = document.createElement("div")
 linksEl.id = "links";
 links = [ 
 {href: "reservasjon.html", tekst: "reservasjon"},
-{href: "om.html", tekst: "Om oss"},
+{href: "about.html", tekst: "Om oss"},
 {href: "meny.html", tekst: "meny"} ];
 for (i = 0; i < links.length; i++) {
     aEl = document.createElement("a");
