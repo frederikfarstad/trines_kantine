@@ -80,11 +80,12 @@ const handlekurv = {
         handlekurv.innhold.forEach(item=>{
             if (item.id === event.target.classList[1] && item.antall <= 0) {
                 handlekurv.remove(event.target.classList[1])
-            };
+            };if (item.id === event.target.classList[1] && item.antall > 0) {
+                handlekurv.vis_pris(event.target.classList[1])
+            }
         });
         handlekurv.sync();
-        handlekurv.vis_sum()
-        handlekurv.vis_pris(event.target.classList[1])
+        handlekurv.vis_sum();
     },
     remove(id){
         handlekurv.innhold = handlekurv.innhold.filter(item=>{
