@@ -3,14 +3,14 @@ footer.id = "footer"
 const text_content = document.createElement("div")
 text_content.id = "text_content"
 const logo = document.createElement("img")
-logo.src = "/p1-p2-p3-p4/img/logo.png"
+logo.src = "img/logo2.png"
 logo.alt = "Logo"
 const span = document.createElement("span")
 span.id = "images"
 
-const images = [{src: "/p1-p2-p3-p4/img/twitter.png", alt: "Twitter-logo"}, 
-{src: "/p1-p2-p3-p4/img/facebook.png", alt: "Facebook-logo"}, 
-{src: "/p1-p2-p3-p4/img/instagram.png", alt: "Instagram-logo"}]
+const images = [{src: "img/twitter.png", alt: "Twitter-logo"}, 
+{src: "img/facebook.png", alt: "Facebook-logo"}, 
+{src: "img/instagram.png", alt: "Instagram-logo"}]
 
 function main(){
     document.body.appendChild(footer);

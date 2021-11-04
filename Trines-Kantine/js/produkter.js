@@ -132,7 +132,7 @@ const handlekurv = {
     },
     vis_pris(c){
         let oc = c + "_pris"
-        let pris_tekst = document.getElementsByClassName(oc)[0]
+        let pris_tekst = document.getElementById(oc)
         let pris = 0
         handlekurv.innhold.forEach(item=>{
             if (item.id == c) {
@@ -145,7 +145,8 @@ const handlekurv = {
 function visHandlekurv() {
     let handlekurv_seksjon = document.getElementById("handlekurv_Content")
     handlekurv_seksjon.innerText = ""
-    let s = handlekurv.sort("antall")
+    //let s = handlekurv.sort("antall")
+    let s = handlekurv.innhold
     s.forEach(produkt=>{
         let vare = document.createElement("div")
         vare.className = "vare_div"
@@ -165,7 +166,8 @@ function visHandlekurv() {
 
         let pris = document.createElement("h3")
         pris.innerText = (produkt.pris * produkt.antall) + " kr"
-        pris.className = produkt.id + "_pris"
+        pris.className = "pris_tekst"
+        pris.id = produkt.id + "_pris"
         vare.appendChild(pris)
 
 
@@ -192,7 +194,7 @@ function visHandlekurv() {
 
 
 const produkter = [{navn: "Rullekebab", id: "rullekebab", pris: 129, allergener: "Gluten, laktose, egg", src: "img/rullekebab.png"}, 
-{navn: "Kebab i pita", id: "kebaIPita", pris: 99, allergener: "Gluten, laktose, egg", src: "img/pita.png"}, 
+{navn: "Kebab i pita", id: "kebabipita", pris: 99, allergener: "Gluten, laktose, egg", src: "img/pita.png"}, 
 {navn: "Falafel", id: "falafel", pris: 109, allergener: "Gluten, laktose, egg", src: "img/falafel.png"}, 
 {navn: "Hamburger", id: "burger", pris: 99, allergener: "Gluten", src: "img/hamburger.png"}, 
 {navn: "Cheeseburger", id: "cheese", pris: 109, allergener: "Gluten, laktose", src: "img/cheeseburger.png"}, 
