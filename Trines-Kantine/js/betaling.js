@@ -62,11 +62,11 @@ function priceCalculation(knapp){ //Regner ut prisen
 
 }
 
+
 let userForm = document.getElementById("userDataForm");
 let paymentForm = document.getElementById("paymentForm");
 
-
-
+//Sjekker om formene er fylt ut og om de er valid
 function pay(){
     let valid = true
 
