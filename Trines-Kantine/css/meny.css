@@ -1,3 +1,7 @@
+/* ---------------------------------------------------
+-------------------- MENY START -------------------
+--------------------------------------------------- */
+
 /* Produkter */
 
 #content{
@@ -69,6 +73,7 @@
     min-height: 300px;
 }
 #handlekurv_Footer{
+    margin-top: 10px;
     font-size: 15px;
 }
 #handlekurv_Footer > button{
@@ -84,3 +89,44 @@
     border-radius: 15px;
     margin: 7.5px;
 }
+.vare_div{
+    display: grid;
+    margin: 15px 5px;
+    row-gap: 5px;
+}
+.navn{
+    grid-column: 1;
+    grid-row: 1;
+    color: white;
+}
+.pris_tekst{
+    color: white;
+}
+.antall-liste{
+    grid-column: 2;
+    grid-row: 1;
+    width: 30%;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid #56CCF2;
+    background-color: #eee;
+    font-size: 1.2em;
+    text-align: center;
+    margin: auto;
+}
+.knp-slett{
+    text-align: center;
+    padding: .67em;
+    cursor: pointer;
+    color: white;
+    background-color: #EB5757;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+    width: 40%;
+    margin: auto;
+}
+
+/* ---------------------------------------------------
+-------------------- MENY SLUTT ---------------------
+--------------------------------------------------- */
