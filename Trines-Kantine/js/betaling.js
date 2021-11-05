@@ -37,14 +37,47 @@ deliveryOptions = {
     trine_personal: 999
 }
 
-//Det som ligger i handlekurven havner her når betalingssiden åpnes (DET SOM ER I LISTEN NÅ ER PLACEHOLDER)
-let shoppingCartFood = [["food1", 100], ["food2", 50]]
+//Det som ligger i handlekurven blir lagt til på siden
+const key = "egirejgrdkske";
+const value = eval(localStorage.getItem(key));
+console.log(value);
+
+let foodNameDiv = document.getElementById("foodType");
+let foodStatsDiv = document.getElementById("foodStats");
+
+for(x of value){
+    let foodText = document.createTextNode(x.navn);
+    let foodAmount = document.createTextNode(x.antall);
+    let foodPrice = document.createTextNode(x.pris);
+    let foodTextParagraph = document.createElement("p");
+    let foodStatsParagraph = document.createElement("p");
+
+    foodTextParagraph.setAttribute("class", "whiteText");
+    foodStatsParagraph.setAttribute("class", "whiteText");
+
+    //Selve navnet på varen
+    foodTextParagraph.append(foodText);
+    foodNameDiv.appendChild(foodTextParagraph);
+    foodNameDiv.appendChild(document.createElement("br"));
+
+    //Antall og pris på varen
+    foodStatsParagraph.append(foodAmount);
+    foodStatsParagraph.append("*");
+    foodStatsParagraph.append(document.createTextNode("   "));
+    foodStatsParagraph.append(foodPrice);
+    foodStatsParagraph.append(",-");
+    foodStatsDiv.appendChild(foodStatsParagraph);
+    foodStatsDiv.appendChild(document.createElement("br"));
+
+    
+}
 
 //Regner ut prisen av matvarene når siden åpnes
 let totalFoodPrice = 0;
-for(x of shoppingCartFood){
-    totalFoodPrice += x[1];
+for(x of value){
+    totalFoodPrice += x.pris * x.antall;
 }
+
 
 //INITIALISERINGER AV VARIABLER
 let prevDelivery = deliveryOptions["hjemlevering"]; //Prisen på forrige leveringsmetode
@@ -61,7 +94,6 @@ function priceCalculation(knapp){ //Regner ut prisen
     document.getElementById("totalCost").innerText = total.toString() + ",-"; //Oppdaterer totalprisen på siden
 
 }
-
 
 let userForm = document.getElementById("userDataForm");
 let paymentForm = document.getElementById("paymentForm");
@@ -112,8 +144,10 @@ function pay(){
     }
 
     if(valid){
-        alert("Kjøp fullført! Du kan trygt lukke denne siden");
+        alert("Kjøp fullført!");
         userForm.submit();
         paymentForm.submit();
+        localStorage.removeItem(key);
+        document.location.href = "index.html";
     }
 }
