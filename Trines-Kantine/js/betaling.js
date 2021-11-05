@@ -61,3 +61,59 @@ function priceCalculation(knapp){ //Regner ut prisen
     document.getElementById("totalCost").innerText = total.toString() + ",-"; //Oppdaterer totalprisen på siden
 
 }
+
+let userForm = document.getElementById("userDataForm");
+let paymentForm = document.getElementById("paymentForm");
+
+
+
+function pay(){
+    let valid = true
+
+    if(userForm.fornavn.checkValidity() == false){
+        valid = false;
+        alert("Skriv inn et fornavn");
+    }
+    else if(userForm.etternavn.checkValidity() == false){
+        valid = false;
+        alert("Skriv inn et etternavn");
+    }
+    else if(userForm.adresse.checkValidity() == false){
+        valid = false;
+        alert("Skriv inn en adresse");
+    }
+    else if(userForm.postnummer.checkValidity() == false){
+        valid = false;
+        alert("Skriv inn et postnummer");
+    }
+    else if(userForm.telefon.checkValidity() == false){
+        valid = false;
+        alert("Skriv inn et telefonnummer");
+    }
+    else if(userForm.mail.checkValidity() == false){
+        valid = false;
+        alert("Skriv inn en gyldig mail");
+    }
+    else if(paymentForm.cardnumber.checkValidity() == false){
+        valid = false;
+        alert("Skriv inn et kortnummer");
+    }
+    else if(paymentForm.expiredate.checkValidity() == false){
+        valid = false;
+        alert("Skriv inn en gyldig utløpsdato");
+    }
+    else if(paymentForm.securitycode.checkValidity() == false){
+        valid = false;
+        alert("Skriv inn sikkerhetskoden");
+    }
+    else if(!luhn()){
+        valid = false;
+        alert("Skriv inn et gyldig kortnummer");
+    }
+
+    if(valid){
+        alert("Kjøp fullført! Du kan trygt lukke denne siden");
+        userForm.submit();
+        paymentForm.submit();
+    }
+}
