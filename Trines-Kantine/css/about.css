@@ -5,6 +5,8 @@
     margin: 50px;
     text-align: center;
 }
+
+
 .item1{
 
     grid-column-start: 1;
@@ -24,6 +26,18 @@
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 2;
+}
+.item4{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+.item5{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
 }
 
 
