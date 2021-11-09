@@ -39,5 +39,3 @@ let handlekurv = [
     {vare: "burger", pris: 100, antall: 4},
     {vare: "burger", pris: 100, antall: 2},
 ]
-
-localStorage = handlekurv
