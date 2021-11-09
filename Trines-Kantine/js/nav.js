@@ -33,9 +33,3 @@ logoEl.append(logoImgEl);
 logoEl.append(logoTextEl);
 a1El.append(logoEl);
 navEl.append(linksEl);
-
-let handlekurv = [
-    {vare: "burger", pris: 100, antall: 3},
-    {vare: "burger", pris: 100, antall: 4},
-    {vare: "burger", pris: 100, antall: 2},
-]
