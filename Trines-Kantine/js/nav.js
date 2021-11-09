@@ -15,9 +15,9 @@ logoTextEl.innerText = "Trines Kantine";
 const linksEl = document.createElement("div")
 linksEl.id = "links";
 links = [ 
-{href: "reservasjon.html", tekst: "reservasjon"},
+{href: "reservasjon.html", tekst: "Reservasjon"},
 {href: "about.html", tekst: "Om oss"},
-{href: "meny.html", tekst: "meny"} ];
+{href: "meny.html", tekst: "Meny"} ];
 for (i = 0; i < links.length; i++) {
     aEl = document.createElement("a");
     aEl.href = links[i].href;
