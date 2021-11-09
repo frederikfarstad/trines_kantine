@@ -8,14 +8,9 @@ const logoImgEl = document.createElement("img");
 logoImgEl.src = "img/logo.png";
 logoImgEl.alt = "Logo";
 const a1El = document.createElement("a");
-a1El.href = "index.html"
+a1El.href = "index.html";
 const logoTextEl = document.createElement("h1");
 logoTextEl.innerText = "Trines Kantine";
-
-const michelinEl = document.createElement("div");
-michelinEl.id = "michelin";
-const michelinImgEl = document.createElement("img");
-michelinImgEl.src = "img/michelin.png";
 
 const linksEl = document.createElement("div")
 linksEl.id = "links";
@@ -33,10 +28,8 @@ for (i = 0; i < links.length; i++) {
 }
 
 document.body.prepend(navEl);
-navEl.append(logoEl);
+navEl.append(a1El);
 logoEl.append(logoImgEl);
-a1El.append(logoTextEl)
-logoEl.append(a1El);
-navEl.append(michelinEl);
-michelinEl.append(michelinImgEl);
+logoEl.append(logoTextEl);
+a1El.append(logoEl);
 navEl.append(linksEl);
