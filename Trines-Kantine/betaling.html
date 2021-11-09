@@ -38,8 +38,9 @@
                     </label>
         
                     <br>
-        
-                    <label class="whiteText"> Postnummer
+                    <p id="postnummerTekst" class="whiteText">Postnummer</p>
+                    <p id="postnrTekst" class="whiteText">PostNr.</p>
+                    <label class="whiteText">
                         <input type="number" name="postnummer" id="postalnumber" placeholder="skriv her" required>
                     </label>
         
@@ -135,7 +136,9 @@
 
                 <div id="paymentInformation">
                     <h1 class="whiteText">Kort:</h1>
-                    <label class="whiteText"> Kortnummer
+                    <p id="kortnummerTekst" class="whiteText">Kortnummer</p>
+                    <p id="kortnrTekst" class="whiteText">KortNr.</p>
+                    <label class="whiteText"> 
                         <input type="number" name="cardnumber" id="kortnummer" placeholder="kortnummer" onchange="luhn()" required>
                     </label>
         
@@ -146,10 +149,13 @@
                     </label>
         
                     <br>
-        
-                    <label class="whiteText"> Sikkerhetskode
+                    
+                    <p id="SikkerhetskodeTekst" class="whiteText">Sikkerhetskode</p>
+                    <p id="CCVTekst" class="whiteText">CCV</p>
+                    <label class="whiteText"> 
                         <input type="number" name="securitycode" id="CCV" placeholder="sikkerhetskode" required>
                     </label>
+                    
                 </div>
                 <button id="betalKnapp" type="button" onclick="pay()">Betal</button>
                 <br>

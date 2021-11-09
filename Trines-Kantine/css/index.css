@@ -2,7 +2,7 @@
 .slideshow {
     background: url('../img/slideshow_burger.jpg') no-repeat center center/cover;
     height: 50vh;
-    color: #fff;
+    color: #000;
 }
 
 .slideshow .content {
@@ -24,6 +24,7 @@
 }
 
 .slideshow .content a {
+    color: #000;
     background-color: #FFD6BA;
     padding: 8px 20px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -109,6 +110,6 @@
     justify-content: center;
 }
 
-.info-box button:hover {
-    cursor: pointer;
+.info-box a:hover {
+    background-color: #7aa6a4;
 }

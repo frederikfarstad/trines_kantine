@@ -7,20 +7,17 @@ logoEl.id = "logo";
 const logoImgEl = document.createElement("img");
 logoImgEl.src = "img/logo.png";
 logoImgEl.alt = "Logo";
+const a1El = document.createElement("a");
+a1El.href = "index.html";
 const logoTextEl = document.createElement("h1");
 logoTextEl.innerText = "Trines Kantine";
-
-const michelinEl = document.createElement("div");
-michelinEl.id = "michelin";
-const michelinImgEl = document.createElement("img");
-michelinImgEl.src = "img/michelin.png";
 
 const linksEl = document.createElement("div")
 linksEl.id = "links";
 links = [ 
-{href: "reservasjon.html", tekst: "reservasjon"},
+{href: "reservasjon.html", tekst: "Reservasjon"},
 {href: "about.html", tekst: "Om oss"},
-{href: "meny.html", tekst: "meny"} ];
+{href: "meny.html", tekst: "Meny"} ];
 for (i = 0; i < links.length; i++) {
     aEl = document.createElement("a");
     aEl.href = links[i].href;
@@ -31,9 +28,8 @@ for (i = 0; i < links.length; i++) {
 }
 
 document.body.prepend(navEl);
-navEl.append(logoEl);
+navEl.append(a1El);
 logoEl.append(logoImgEl);
 logoEl.append(logoTextEl);
-navEl.append(michelinEl);
-michelinEl.append(michelinImgEl);
+a1El.append(logoEl);
 navEl.append(linksEl);
