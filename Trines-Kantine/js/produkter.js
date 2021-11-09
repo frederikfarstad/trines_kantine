@@ -145,7 +145,6 @@ const handlekurv = {
 function visHandlekurv() {
     let handlekurv_seksjon = document.getElementById("handlekurv_Content")
     handlekurv_seksjon.innerText = ""
-    //let s = handlekurv.sort("antall")
     let s = handlekurv.innhold
     s.forEach(produkt=>{
         let vare = document.createElement("div")
@@ -246,5 +245,6 @@ function legg_Til(ev) {
 main()
 window.addEventListener("DOMContentLoaded", ()=>{
     handlekurv.init()
+    handlekurv.vis_sum()
     visHandlekurv()
 })
