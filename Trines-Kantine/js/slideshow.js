@@ -7,7 +7,7 @@ prevButtonEl.addEventListener("click", slideshow_manual)
 nextButtonEl.addEventListener("click", slideshow_manual)
 
 const retter = [{navn: "Grooov Burger", bilde: "slideshow_burger.jpg"},
-                {navn: "Syyykt Flatbrød", bilde: "slideshow_flatbrød.jpg"},
+                {navn: "Syyykt Flatbrød", bilde: "slideshow_flatbrod.jpg"},
                 {navn: "Heftig Kebab", bilde: "slideshow_kebab.jpg"}];
 
 function slideshow_manual(e) {
