@@ -8,7 +8,7 @@ function initMap() {
     setMarkers(map);
   }
 
-  const beaches = [
+  const locations = [
     ["Trondheim TK", 63.429927199999995, 10.3959849, 4],
     ["Bergen TK", 60.3931944, 5.3153888, 5],
     ["Monaco TK", 43.7387047, 7.427407799999999, 3],
@@ -34,16 +34,16 @@ function initMap() {
       type: "poly",
     };
   
-    for (let i = 0; i < beaches.length; i++) {
-      const beach = beaches[i];
+    for (let i = 0; i < locations.length; i++) {
+      const location = locations[i];
   
       new google.maps.Marker({
-        position: { lat: beach[1], lng: beach[2] },
+        position: { lat: location[1], lng: location[2] },
         map,
         icon: image,
         shape: shape,
-        title: beach[0],
-        zIndex: beach[3],
+        title: location[0],
+        zIndex: location[3],
       });
     }
   }
