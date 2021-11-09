@@ -22,6 +22,7 @@
     display:inline-block;
     padding: 5px;
     text-align: left;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .produkt_Boks > img{
     width: 200px;
@@ -40,6 +41,7 @@
     background-color: #5ba35d;
     border: none;
     border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .produkt_Boks > h1{
     display: inline-block;
@@ -76,6 +78,7 @@
     padding: 5px;
     width: 60%;
     margin: 20px auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 #handlekurv_Boks_Header{
     padding: 7.5px;
@@ -99,6 +102,7 @@
     border: none;
     border-radius: 15px;
     margin: 7.5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .vare_div{
     display: grid;
@@ -125,6 +129,7 @@
     font-size: 1.2em;
     text-align: center;
     margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .knp-slett{
     text-align: center;
@@ -137,6 +142,7 @@
     font-weight: bold;
     width: 40%;
     margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 @media (max-width: 1020px) {
     #handlekurv{
