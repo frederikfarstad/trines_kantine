@@ -39,7 +39,7 @@ deliveryOptions = {
 
 //Det som ligger i handlekurven blir lagt til på siden
 const key = "egirejgrdkske";
-const value = eval(localStorage.getItem(key));
+const value = JSON.parse(localStorage.getItem(key));
 console.log(value);
 
 let foodNameDiv = document.getElementById("foodType");
