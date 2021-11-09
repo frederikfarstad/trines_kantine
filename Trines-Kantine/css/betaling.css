@@ -167,3 +167,29 @@
     justify-content: space-between;
     padding-inline: 50px;
 }
+
+#CCVTekst, #postnrTekst, #kortnrTekst{
+    display: none;
+}
+#SikkerhetskodeTekst, #postnummerTekst, #kortnummerTekst{
+    display: inline-block;
+}
+
+
+@media (max-width: 1180px) {
+    #CCVTekst {
+        display: inline-block;
+    }
+    #SikkerhetskodeTekst{
+        display: none;
+    }
+  }
+
+@media (max-width: 1020px) {
+    #postnummerTekst, #kortnummerTekst{
+        display: none;
+    }
+    #postnrTekst, #kortnrTekst {
+        display: inline-block;
+    }
+  }
