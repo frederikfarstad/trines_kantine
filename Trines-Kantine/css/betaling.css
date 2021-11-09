@@ -17,6 +17,7 @@
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 }
 
@@ -46,6 +47,7 @@
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 #delivery > h1{
@@ -78,6 +80,7 @@
     grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 #payment > h1{
@@ -135,6 +138,7 @@
     margin-top: 30px;
     padding: 25px 60px;
     border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 #fadedText{
