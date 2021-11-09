@@ -41,18 +41,31 @@
     z-index: 10;
 }
 
-.slideshow .button-container {
+.slideshow #button-container {
     position: relative;
-    background-color: #555B6E;
     z-index: 10;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: -27vh;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-.slideshow .button-container button{
+.slideshow #button-container button{
+    background-color: #555B6E;
+    width: 50px;
+    height: 50px;
+    padding-bottom: 5px;
     border: none;
-    background-color: blue;
+    border-radius: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    font-size: 30px;
+    color: #BEE3DB;
+}
+
+.slideshow #button-container button:hover {
+    background-color: #3f4352;
 }
 
 /* infobokser */

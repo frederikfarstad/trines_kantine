@@ -6,10 +6,11 @@ let counter = 0
 prevButtonEl.addEventListener("click", slideshow_manual)
 nextButtonEl.addEventListener("click", slideshow_manual)
 
+const retter = [{navn: "Grooov Burger", bilde: "slideshow_burger.jpg"},
+                {navn: "Syyykt Flatbrød", bilde: "slideshow_flatbrød.jpg"},
+                {navn: "Heftig Kebab", bilde: "slideshow_kebab.jpg"}];
+
 function slideshow_manual(e) {
-    let retter = [{navn: "Grooov Burger", bilde: "slideshow_burger.jpg"},
-                    {navn: "Syyykt Flatbrød", bilde: "slideshow_flatbrød.jpg"},
-                    {navn: "Heftig Kebab", bilde: "slideshow_kebab.jpg"}];
     let bakgrunnEl = document.getElementById("bakgrunn");
     let rettnavnEl = document.getElementById("rettnavn");
     
@@ -27,9 +28,6 @@ function slideshow_manual(e) {
 }
 
 function slideshow_automatic() {
-    let retter = [{navn: "Grooov Burger", bilde: "slideshow_burger.jpg"},
-                    {navn: "Syyykt Flatbrød", bilde: "slideshow_flatbrød.jpg"},
-                    {navn: "Heftig Kebab", bilde: "slideshow_kebab.jpg"}];
     let bakgrunnEl = document.getElementById("bakgrunn");
     let rettnavnEl = document.getElementById("rettnavn");
 
@@ -43,8 +41,8 @@ function slideshow_automatic() {
 
     bakgrunnEl.style.background = `url('img/${retter[counter].bilde}') no-repeat center center/cover`;
     rettnavnEl.innerText = retter[counter].navn
+
+    setTimeout("slideshow_automatic()", 4500);
 }
 
-function main() {
-}
-main()
+window.onload = slideshow_automatic;
