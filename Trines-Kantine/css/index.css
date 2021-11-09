@@ -110,6 +110,6 @@
     justify-content: center;
 }
 
-.info-box button:hover {
-    cursor: pointer;
+.info-box a:hover {
+    background-color: #7aa6a4;
 }
