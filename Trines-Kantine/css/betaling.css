@@ -1,4 +1,4 @@
-#wrapper{
+#wrapperForm{
     display: grid;
     grid-template-columns: 7% 40% 6% 40% 7%;
     grid-template-rows: auto auto auto;

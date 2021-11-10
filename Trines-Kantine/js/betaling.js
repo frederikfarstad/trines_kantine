@@ -97,7 +97,7 @@ function priceCalculation(knapp){ //Regner ut prisen
 
 //Endrer CSS hvis klarna eller vipps blir valgt som betalingsmetode
 function changecss(rB){
-    kortInfo = document.getElementById("paymentInformation")
+    let kortInfo = document.getElementById("paymentInformation");
     if(rB.value == "Vipps"|| rB.value == "Klarna"){
         kortInfo.style.display = "none";
     }
@@ -106,10 +106,105 @@ function changecss(rB){
     }
 }
 
-let userForm = document.getElementById("userDataForm");
-let paymentForm = document.getElementById("paymentForm");
+
+
+//Håndterer valideringen av formen
+let submitButton = document.getElementById("submitButton");
+
+let today = new Date();
+console.log(today.getFullYear());
+console.log(today.getMonth()+1);
+
+function pay(){
+    
+    let kortInfo = document.getElementById("paymentInformation");
+    let utlopsDatoElem = document.getElementById("utlopsdato");
+    let utlopsDato = utlopsDatoElem.value.toString()
+
+    let dato = new Date();
+    let datoYr = dato.getFullYear().toString()[2] + dato.getFullYear().toString()[3];
+    let datoMnd = (dato.getMonth()+1).toString();
+    console.log(`${datoMnd}/${datoYr}`);
+
+    utlopsDato = utlopsDato.replace("/","");
+    utlopsMnd = utlopsDato[0] + utlopsDato[1];
+    utlopsYr = utlopsDato[2] + utlopsDato[3];
+
+    
+    if(kortInfo.style.display == "none"){
+        document.getElementById("kortnummer").required = false;
+        document.getElementById("utlopsdato").required = false;
+        document.getElementById("CCV").required = false;
+        submitButton.click();
+
+        
+    }
+    else{
+        document.getElementById("kortnummer").required = true;
+        document.getElementById("utlopsdato").required = true;;
+        document.getElementById("CCV").required = true;;
+
+        if(utlopsYr < datoYr || utlopsYr == datoYr && utlopsMnd < datoMnd || utlopsMnd < 1 || utlopsMnd > 12){
+            utlopsDatoElem.value = "";
+            utlopsDatoElem.setAttribute("placeholder", "ugyldig dato [mm/yy]");
+        }
+        
+        if(!luhn()){
+            document.getElementById("kortnummer").value = "";
+            document.getElementById("kortnummer").setAttribute("placeholder", "ugyldig kortnummer");
+
+        }
+
+        submitButton.click();
+
+    }
+}
+
+
+//Bytter til hjemmesiden hvis formen har blitt submitta
+let url = window.location.href;
+let lastUrlPart = url.substr(url.lastIndexOf("/")+1);
+
+if(lastUrlPart!="betaling.html"){
+    alert("Bestillingen har blitt sendt!");
+    localStorage.removeItem(key);
+    document.location.href = "index.html";
+}
+
+/*
+        
+        if(utlopsDato.length != 4){
+
+            validated = false;
+        }
+        else{
+            
+            let utlopsYr = 2000 + parseInt(utlopsDato[2].toString() + utlopsDato[3].toString());
+            let utlopsMnd = parseInt(utlopsDato[0].toString() + utlopsDato[1].toString());
+            console.log(utlopsYr, utlopsMnd);
+
+            if(utlopsYr < datoYr || utlopsYr == datoYr && utlopsMnd < datoMnd || utlopsMnd < 1 || utlopsMnd > 12){
+                validated = false;
+            }
+            else{
+                validated = true;
+            }
+
+        }
+
+        if(validated){
+            
+        }
+    }
+
+    //console.log(validated);
+    
+}
+
+*/
 
 //Sjekker om formene er fylt ut og om de er valid
+/*
 function pay(){
     let valid = true
 
@@ -162,3 +257,4 @@ function pay(){
         document.location.href = "index.html";
     }
 }
+*/

@@ -17,9 +17,9 @@
     <br>
 
     <div id="wrapper">
-        <div id="delivery" class="roundBox bgBlack">
-            <h1 class="whiteText">Levering:</h1>
-            <form id="userDataForm">
+        <form id="wrapperForm">
+            <div id="delivery" class="roundBox bgBlack">
+                <h1 class="whiteText">Levering:</h1>
                 <div id="userData">
                     <label class="whiteText"> Fornavn
                         <input type="text" name="fornavn" id="firstname" placeholder="skriv her" required>
@@ -57,8 +57,10 @@
                     </label>
         
                     <br>
+                
                 </div>
                 
+    
                 
                 <div id="deliveryMethod">
                     <h1 class="whiteText">Leveringsmetode:</h1>
@@ -80,39 +82,35 @@
                         </label> Trine personal delivery &nbsp;&nbsp;&nbsp; +999,-
                     </div>
                 </div>
-                
-            </form>
-
-        </div>
-
-        <div id="inCartDetails" class="roundBox bgBlack">
-            <h1 class="whiteText">I Handlevogn:</h1>
-            <div id="inCartWrapper">
-
-                <div id="foodInCart">
-                    <div id="foodType"></div>
-
-                    <div id="foodStats"></div>
-                </div>
-
-                <div id="deliveryStats">
-                    <p id="deliveryStatsText" class="whiteText">Levering</p>
-                    <output id="deliveryStatsCost" class="whiteText">49,-</output>
-                </div>
-
-                <br>
-
-                <div id="totalStats">
-                    <p id="totalCostText" class="whiteText" style="text-decoration: underline;">Total:&nbsp;&nbsp;</p>
-                    <output id="totalCost" class="whiteText" style="text-decoration: underline;">49,-</output>
+            </div>
+    
+            <div id="inCartDetails" class="roundBox bgBlack">
+                <h1 class="whiteText">I Handlevogn:</h1>
+                <div id="inCartWrapper">
+    
+                    <div id="foodInCart">
+                        <div id="foodType"></div>
+    
+                        <div id="foodStats"></div>
+                    </div>
+    
+                    <div id="deliveryStats">
+                        <p id="deliveryStatsText" class="whiteText">Levering</p>
+                        <output id="deliveryStatsCost" class="whiteText">49,-</output>
+                    </div>
+    
+                    <br>
+    
+                    <div id="totalStats">
+                        <p id="totalCostText" class="whiteText" style="text-decoration: underline;">Total:&nbsp;&nbsp;</p>
+                        <output id="totalCost" class="whiteText" style="text-decoration: underline;">49,-</output>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div id="payment" class="roundBox bgBlack">
-            <h1 class="whiteText">Betaling:</h1>
-
-            <form id="paymentForm">
+    
+            <div id="payment" class="roundBox bgBlack">
+                <h1 class="whiteText">Betaling:</h1>
+    
                 <div id="paymentMethod">
                     <h1 class="whiteText">Betalingsmåte:</h1>
                     <div class="whiteInputDiv">
@@ -133,7 +131,8 @@
                         </label> Vipps
                     </div>
                 </div>
-
+    
+                
                 <div id="paymentInformation">
                     <h1 class="whiteText">Kort:</h1>
                     <p id="kortnummerTekst" class="whiteText">Kortnummer</p>
@@ -145,7 +144,7 @@
                     <br>
         
                     <label class="whiteText"> Utløpsdato 
-                        <input type="text" name="expiredate" id="utløpsdato" pattern="([0-9]{2}[/]?){2}" placeholder="mm/yy" required>
+                        <input type="text" name="expiredate" id="utlopsdato" pattern="[0-9]{2}[/][0-9]{2}" placeholder="mm/yy" required>
                     </label>
         
                     <br>
@@ -155,17 +154,22 @@
                     <label class="whiteText"> 
                         <input type="number" name="securitycode" id="CCV" min="0" max="999" placeholder="sikkerhetskode" required>
                     </label>
-                    
                 </div>
+                
+                
+    
                 <button id="betalKnapp" type="button" onclick="pay()">Betal</button>
                 <br>
                 <br>
                 <a href="https://www.kondomeriet.no/inspirasjon/artikler/kjopsbetingelser/" target="_blank" style="text-decoration: underline;">Se betalingsvilkår</a>
-            </form>
-        </div>
-        <div id="fadedText">
-            <p>Håper det smaker!</p>
-        </div>
+    
+            </div>
+            <div id="fadedText">
+                <p>Håper det smaker!</p>
+            </div>
+        <input type="submit" style="display:none" id="submitButton">
+        </form>
+        
     </div>
 
     <script src="js/footer.js"></script>
