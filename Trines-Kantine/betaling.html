@@ -117,19 +117,19 @@
                     <h1 class="whiteText">Betalingsmåte:</h1>
                     <div class="whiteInputDiv">
                         <label> 
-                            <input type="radio" name="paymentMethodInput" value="Visa" checked>
+                            <input type="radio" name="paymentMethodInput" value="Visa" onclick="changecss(this)" checked>
                         </label> Visa
                         <br>
                         <label> 
-                            <input type="radio" name="paymentMethodInput" value="Mastercard">
+                            <input type="radio" name="paymentMethodInput" value="Mastercard" onclick="changecss(this)">
                         </label> Mastercard
                         <br>
                         <label> 
-                            <input type="radio" name="paymentMethodInput" value="Klarna">
+                            <input type="radio" name="paymentMethodInput" value="Klarna" onclick="changecss(this)">
                         </label> Klarna
                         <br>
                         <label> 
-                            <input type="radio" name="paymentMethodInput" value="Vipps">
+                            <input type="radio" name="paymentMethodInput" value="Vipps" onclick="changecss(this)">
                         </label> Vipps
                     </div>
                 </div>
@@ -153,7 +153,7 @@
                     <p id="SikkerhetskodeTekst" class="whiteText">Sikkerhetskode</p>
                     <p id="CCVTekst" class="whiteText">CCV</p>
                     <label class="whiteText"> 
-                        <input type="number" name="securitycode" id="CCV" placeholder="sikkerhetskode" required>
+                        <input type="number" name="securitycode" id="CCV" min="0" max="999" placeholder="sikkerhetskode" required>
                     </label>
                     
                 </div>

@@ -95,6 +95,17 @@ function priceCalculation(knapp){ //Regner ut prisen
 
 }
 
+//Endrer CSS hvis klarna eller vipps blir valgt som betalingsmetode
+function changecss(rB){
+    kortInfo = document.getElementById("paymentInformation")
+    if(rB.value == "Vipps"|| rB.value == "Klarna"){
+        kortInfo.style.display = "none";
+    }
+    else if(rB.value == "Visa"|| rB.value == "Mastercard"){
+        kortInfo.style.display = "block";
+    }
+}
+
 let userForm = document.getElementById("userDataForm");
 let paymentForm = document.getElementById("paymentForm");
 

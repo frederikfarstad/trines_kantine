@@ -75,6 +75,7 @@
 
 #payment{
     text-align: center;
+    height: fit-content;
     padding: 20px;
     grid-column-start: 4;
     grid-column-end: 5;
