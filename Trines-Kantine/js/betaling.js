@@ -1,25 +1,27 @@
 
-//Luhns Algoritme for kredittkortsjekk
+/* Luhns Algoritme for kredittkortsjekk 
+Dette er et gyldig kortnummer 79927398713 (ikke et faktisk kort)*/
+
 function luhn(){
     let card = document.getElementById("kortnummer").value;
-    let liste = card.toString().split("");
+    let liste = card.toString().split("");                  //Gjør om kortnummeret til en liste
 
     let total = 0;
-    for(let x = liste.length - 2; x >= 0; x -= 2){ //Går igjennom hvert andre tall inkl det nest bakerste (IKKE INKL CHECKSUM)
-        var temp = 2*parseInt(liste[x]);
-        tempList = temp.toString().split("");
+    for(let x = liste.length - 2; x >= 0; x -= 2){          //Går igjennom hvert andre tall inkl det nest bakerste (IKKE INKL CHECKSUM)
+        var temp = 2*parseInt(liste[x]);                    //Ganger tallet med 2
+        tempList = temp.toString().split("");               //Legger alle sifrene i tallet (eks 1 og 2 i 12) til en midlertidig liste
         for(num of tempList){
-            total += parseInt(num);
+            total += parseInt(num);                         //Legger til verdien av alle tallene fra den midlertidig listen til totalen
         }
     }
 
-    for(let x = liste.length-3; x >= 0; x -= 2){ //Går igjennom hvert andre tall fra det tredje bakerste (IKKE INKL CHECKSUM)
-        total += parseInt(liste[x]);
+    for(let x = liste.length-3; x >= 0; x -= 2){            //Går igjennom hvert andre tall fra det tredje bakerste (IKKE INKL CHECKSUM)
+        total += parseInt(liste[x]);                        //Legger til verdien av tallet til totalen
     }
 
-    checkDigit = parseInt(liste[liste.length-1])
+    checkDigit = parseInt(liste[liste.length-1])            //Henter ut det siste sifferet fra kortnummeret (sjekknummeret)
 
-    if(10-total%10 == checkDigit){ //Sjekker verdien fra luhn og checksummen stemmer
+    if(10-total%10 == checkDigit){                          //Sjekker om verdien fra luhns algoritme og checksummen stemmer
         console.log("valid");
         return true;
     }
@@ -30,6 +32,9 @@ function luhn(){
 
 }
 
+
+
+/* De forskjellige leveringsmetodene */
 deliveryOptions = {
     hjemlevering: 49,
     hente_selv: 0,
@@ -37,30 +42,32 @@ deliveryOptions = {
     trine_personal: 999
 }
 
-//Det som ligger i handlekurven blir lagt til på siden
-const key = "egirejgrdkske";
-const value = JSON.parse(localStorage.getItem(key));
-console.log(value);
 
-let foodNameDiv = document.getElementById("foodType");
+
+/* Det som ligger i i handlekurven fra meny.html blir overført til betaling.html */
+const key = "egirejgrdkske";                                //Nøkkelen til en verdi i localstorage (samme som i meny.html)
+const value = JSON.parse(localStorage.getItem(key));        //Henter ut verdien i localstorage (en liste med objekter)  
+//console.log(value);                                       //Vi kunne også ha brukt eval(), men vi leste at JSON.parse() var tryggere.
+
+let foodNameDiv = document.getElementById("foodType");      
 let foodStatsDiv = document.getElementById("foodStats");
 
-for(x of value){
-    let foodText = document.createTextNode(x.navn);
-    let foodAmount = document.createTextNode(x.antall);
-    let foodPrice = document.createTextNode(x.pris);
-    let foodTextParagraph = document.createElement("p");
-    let foodStatsParagraph = document.createElement("p");
+for(x of value){                                            //Går igjennom alle objektene i localstorage
+    let foodText = document.createTextNode(x.navn);         //Lager tekstnode med navn
+    let foodAmount = document.createTextNode(x.antall);     //Lager tekstnode med antall
+    let foodPrice = document.createTextNode(x.pris);        //Lager tekstnode med pris
+    let foodTextParagraph = document.createElement("p");    //Lager p-element som skal vise navnet på maten
+    let foodStatsParagraph = document.createElement("p");   //Lager p-element som skal vise prisen og antall av maten
 
     foodTextParagraph.setAttribute("class", "whiteText");
     foodStatsParagraph.setAttribute("class", "whiteText");
 
-    //Selve navnet på varen
+    //legger til navnet på maten til html filen
     foodTextParagraph.append(foodText);
     foodNameDiv.appendChild(foodTextParagraph);
-    foodNameDiv.appendChild(document.createElement("br"));
+    foodNameDiv.appendChild(document.createElement("br"));  //Legger til et br element for å lage linjeskift
 
-    //Antall og pris på varen
+    //Legger til antall og pris på varen til html filen
     foodStatsParagraph.append(foodAmount);
     foodStatsParagraph.append("*");
     foodStatsParagraph.append(document.createTextNode("   "));
@@ -68,193 +75,109 @@ for(x of value){
     foodStatsParagraph.append(",-");
     foodStatsDiv.appendChild(foodStatsParagraph);
     foodStatsDiv.appendChild(document.createElement("br"));
-
-    
 }
 
-//Regner ut prisen av matvarene når siden åpnes
+
+
+/* Regner ut prisen av matvarene når siden åpnes */
 let totalFoodPrice = 0;
 for(x of value){
     totalFoodPrice += x.pris * x.antall;
 }
 
 
-//INITIALISERINGER AV VARIABLER
-let prevDelivery = deliveryOptions["hjemlevering"]; //Prisen på forrige leveringsmetode
-let total = 49 + totalFoodPrice; //49 siden siden starter checket på hjemlevering med pris 49kr
-document.getElementById("totalCost").innerText = total.toString() + ",-"; //initialiserer totalprisen på siden
+
+/* Legger til totalprisen når siden åpnes for første gang */
+let total = 49 + totalFoodPrice;                                            //49 siden siden starter checket på hjemlevering med pris 49kr
+document.getElementById("totalCost").innerText = total.toString() + ",-";   //Skriver ut totalpris i det siden åpnes
 
 
-function priceCalculation(knapp){ //Regner ut prisen
-    let chosen = deliveryOptions[knapp.value];
-    total -= prevDelivery; //Tar vekk kostnaden av den forrige leveringen
-    total += chosen;
-    prevDelivery = chosen;
-    document.getElementById("deliveryStatsCost").innerText = chosen.toString() + ",-"; //Oppdaterer leveringsprisen på siden
-    document.getElementById("totalCost").innerText = total.toString() + ",-"; //Oppdaterer totalprisen på siden
+
+/* Regner ut ny totalpris ved ny leveringsmetode */
+let prevDelivery = deliveryOptions["hjemlevering"]; //Prisen på forrige leveringsmetode, her står det hjemlevering siden den er checked by default på siden
+
+function priceCalculation(knapp){                   //Regner ut totalprisen på nytt når man trykker på annet leveringsalternativ
+    let chosen = deliveryOptions[knapp.value];      //Pris på valgt leveringsmetode
+    total -= prevDelivery;                          //Trekker fra prisen på forrige leveringsmetode
+    total += chosen;                                //Legger til prisen på valgt leveringsmetode
+    prevDelivery = chosen;                          
+    document.getElementById("deliveryStatsCost").innerText = chosen.toString() + ",-";  //Oppdaterer leveringsprisen på siden
+    document.getElementById("totalCost").innerText = total.toString() + ",-";           //Oppdaterer totalprisen på siden
 
 }
 
-//Endrer CSS hvis klarna eller vipps blir valgt som betalingsmetode
+
+
+/* Endrer CSS hvis klarna eller vipps blir valgt som betalingsmetode */
 function changecss(rB){
-    let kortInfo = document.getElementById("paymentInformation");
-    if(rB.value == "Vipps"|| rB.value == "Klarna"){
-        kortInfo.style.display = "none";
+    let kortInfo = document.getElementById("paymentInformation");   //Henter ut valgt betalingsmetode
+    if(rB.value == "Vipps"|| rB.value == "Klarna"){ 
+        kortInfo.style.display = "none";                            //Skjult
     }
     else if(rB.value == "Visa"|| rB.value == "Mastercard"){
-        kortInfo.style.display = "block";
+        kortInfo.style.display = "block";                           //Synlig
     }
 }
 
 
 
-//Håndterer valideringen av formen
-let submitButton = document.getElementById("submitButton");
-
-let today = new Date();
-console.log(today.getFullYear());
-console.log(today.getMonth()+1);
+/* Håndterer valideringen av formen */
+let submitButton = document.getElementById("submitButton"); //Henter knapp som brukes til submit senere
 
 function pay(){
     
     let kortInfo = document.getElementById("paymentInformation");
     let utlopsDatoElem = document.getElementById("utlopsdato");
-    let utlopsDato = utlopsDatoElem.value.toString()
+    let utlopsDato = utlopsDatoElem.value; 
 
-    let dato = new Date();
-    let datoYr = dato.getFullYear().toString()[2] + dato.getFullYear().toString()[3];
-    let datoMnd = (dato.getMonth()+1).toString();
-    console.log(`${datoMnd}/${datoYr}`);
+    let dato = new Date();          //Lager nytt dato-element
+    let datoYr = dato.getFullYear().toString()[2] + dato.getFullYear().toString()[3];   //Henter ut siste to siffrene i årstallet (eks 21 ut fra 2021) og lagrer det i en streng
+    let datoMnd = (dato.getMonth()+1).toString();   //Legger til måneden som en streng (+1 fordi getMonth() gir verdi fra 0 til 11, men vi ønsker 1 til 12)
+    //console.log(`${datoMnd}/${datoYr}`);
 
-    utlopsDato = utlopsDato.replace("/","");
-    utlopsMnd = utlopsDato[0] + utlopsDato[1];
-    utlopsYr = utlopsDato[2] + utlopsDato[3];
+    utlopsDato = utlopsDato.replace("/","");    //Fjerner eventuell skråstrek fra input
+    utlopsMnd = utlopsDato[0] + utlopsDato[1];  //Henter ut måneden fra input
+    utlopsYr = utlopsDato[2] + utlopsDato[3];   //Henter ut år fra input
 
     
-    if(kortInfo.style.display == "none"){
-        document.getElementById("kortnummer").required = false;
+    if(kortInfo.style.display == "none"){                       //Dersom klarna eller vipps er valgt
+        document.getElementById("kortnummer").required = false; //Kortdetaljer blir ikke required
         document.getElementById("utlopsdato").required = false;
         document.getElementById("CCV").required = false;
-        submitButton.click();
+        submitButton.click();                                   //submitter formen (hvis den er valid)
 
         
     }
-    else{
-        document.getElementById("kortnummer").required = true;
+    else{                                                       //Dersom Visa eller Mastercard er valgt
+        document.getElementById("kortnummer").required = true;  //Kortdetaljer blir required
         document.getElementById("utlopsdato").required = true;;
         document.getElementById("CCV").required = true;;
 
+        //Sjekker om utløpsdatoen er tidligere enn dagens dato og gjør inputfeltet tomt dersom dette er tilfellet (dette gjør at formen ikke blir valid)
         if(utlopsYr < datoYr || utlopsYr == datoYr && utlopsMnd < datoMnd || utlopsMnd < 1 || utlopsMnd > 12){
             utlopsDatoElem.value = "";
             utlopsDatoElem.setAttribute("placeholder", "ugyldig dato [mm/yy]");
         }
         
+        //Sjekker om kortet er gyldig og gjør inputfeltet tomt dersom det er ugyldig (dette gjør at formen ikke blir valid)
         if(!luhn()){
             document.getElementById("kortnummer").value = "";
             document.getElementById("kortnummer").setAttribute("placeholder", "ugyldig kortnummer");
 
         }
 
-        submitButton.click();
+        submitButton.click();   //submitter formen (hvis den er valid)
 
     }
 }
 
 
-//Bytter til hjemmesiden hvis formen har blitt submitta
-let url = window.location.href;
-let lastUrlPart = url.substr(url.lastIndexOf("/")+1);
+//Bytter til hjemmesiden hvis formen har blitt submitta (Da er URL'en annerledes)
+let url = window.location.href;                         //Henter URL
+let lastUrlPart = url.substr(url.lastIndexOf("/")+1);   //substr(fra, til (slutten av streng hvis ikke spesifisert)) gir en ny streng. Her: fra siste "/"" i URL'en til slutten av URL'en
 
-if(lastUrlPart!="betaling.html"){
-    alert("Bestillingen har blitt sendt!");
-    localStorage.removeItem(key);
-    document.location.href = "index.html";
+if(lastUrlPart!="betaling.html"){                       //Dersom URL'en ikke slutter på "betaling.html", så vil det si at formen er submitta
+    alert("Bestillingen har blitt sendt!");             //Bruker får bekreftet at bestillingen har blitt sendt
+    localStorage.removeItem(key);                       //Handlekurven blir tom
+    document.location.href = "index.html";              //Fører brukeren tilbake til hovedsiden
 }
-
-/*
-        
-        if(utlopsDato.length != 4){
-
-            validated = false;
-        }
-        else{
-            
-            let utlopsYr = 2000 + parseInt(utlopsDato[2].toString() + utlopsDato[3].toString());
-            let utlopsMnd = parseInt(utlopsDato[0].toString() + utlopsDato[1].toString());
-            console.log(utlopsYr, utlopsMnd);
-
-            if(utlopsYr < datoYr || utlopsYr == datoYr && utlopsMnd < datoMnd || utlopsMnd < 1 || utlopsMnd > 12){
-                validated = false;
-            }
-            else{
-                validated = true;
-            }
-
-        }
-
-        if(validated){
-            
-        }
-    }
-
-    //console.log(validated);
-    
-}
-
-*/
-
-//Sjekker om formene er fylt ut og om de er valid
-/*
-function pay(){
-    let valid = true
-
-    if(userForm.fornavn.checkValidity() == false){
-        valid = false;
-        alert("Skriv inn et fornavn");
-    }
-    else if(userForm.etternavn.checkValidity() == false){
-        valid = false;
-        alert("Skriv inn et etternavn");
-    }
-    else if(userForm.adresse.checkValidity() == false){
-        valid = false;
-        alert("Skriv inn en adresse");
-    }
-    else if(userForm.postnummer.checkValidity() == false){
-        valid = false;
-        alert("Skriv inn et postnummer");
-    }
-    else if(userForm.telefon.checkValidity() == false){
-        valid = false;
-        alert("Skriv inn et telefonnummer");
-    }
-    else if(userForm.mail.checkValidity() == false){
-        valid = false;
-        alert("Skriv inn en gyldig mail");
-    }
-    else if(paymentForm.cardnumber.checkValidity() == false){
-        valid = false;
-        alert("Skriv inn et kortnummer");
-    }
-    else if(paymentForm.expiredate.checkValidity() == false){
-        valid = false;
-        alert("Skriv inn en gyldig utløpsdato");
-    }
-    else if(paymentForm.securitycode.checkValidity() == false){
-        valid = false;
-        alert("Skriv inn sikkerhetskoden");
-    }
-    else if(!luhn()){
-        valid = false;
-        alert("Skriv inn et gyldig kortnummer");
-    }
-
-    if(valid){
-        alert("Kjøp fullført!");
-        userForm.submit();
-        paymentForm.submit();
-        localStorage.removeItem(key);
-        document.location.href = "index.html";
-    }
-}
-*/
