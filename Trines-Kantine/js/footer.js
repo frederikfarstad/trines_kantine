@@ -12,7 +12,7 @@ const images = [{src: "img/twitter.png", alt: "Twitter-logo"},
 {src: "img/facebook.png", alt: "Facebook-logo"}, 
 {src: "img/instagram.png", alt: "Instagram-logo"}]
 
-function main(){
+function main(){ // funksjon for å lage footer
     document.body.appendChild(footer);
     footer.appendChild(logo)
     footer.appendChild(text_content);
