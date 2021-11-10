@@ -1,3 +1,10 @@
+/* ---------------------------------------------------
+-------------------- BETALING START -----------------
+--------------------------------------------------- */
+
+
+/* Generelt */
+
 #wrapperForm{
     display: grid;
     grid-template-columns: 7% 40% 6% 40% 7%;
@@ -7,38 +14,21 @@
 
 }
 
-
-#inCartDetails{
-    width: 70%;
-    margin:auto;
-    text-align: center;
-    padding: 20px;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
-}
-
-#inCartDetails > h1{
-    font-weight: normal;
-}
-
-#foodType{
-    display: inline-block;
+.whiteInputDiv{
+    background-color: #FAF9F9;
+    width: 100%;
     text-align: left;
+    border-radius: 5px;
+    
 }
 
-#foodStats{
-    display: inline-block;
+.whiteInputDiv > label > input{
+    margin: 3px auto 3px 5px
 }
 
-#foodInCart{
-    display:flex;
-    justify-content: space-between;
-    padding-inline: 50px;
-}
+
+
+/* Levering */
 
 #delivery{
     text-align: center;
@@ -73,6 +63,64 @@
     font-weight: normal;
 }
 
+
+
+/* Handlekurv */
+
+#inCartDetails{
+    width: 70%;
+    margin:auto;
+    text-align: center;
+    padding: 20px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+
+#inCartDetails > h1{
+    font-weight: normal;
+}
+
+#inCartWrapper {
+    padding-top: 20px;
+}
+
+#foodInCart{
+    display:flex;
+    justify-content: space-between;
+    padding-inline: 50px;
+}
+
+
+#foodType{
+    display: inline-block;
+    text-align: left;
+}
+
+#foodStats{
+    display: inline-block;
+}
+
+#deliveryStats{
+    display:flex;
+    justify-content: space-between;
+    padding-inline: 50px;
+}
+
+#totalStats{
+    display:flex;
+    justify-content:right;
+    padding-inline: 50px;
+    
+}
+
+
+
+/* Betaling */
+
 #payment{
     text-align: center;
     height: fit-content;
@@ -95,22 +143,15 @@
     font-weight: normal;
 }
 
-.whiteInputDiv{
-    background-color: #FAF9F9;
-    width: 100%;
-    text-align: left;
-    border-radius: 5px;
-    
-}
-
-.whiteInputDiv > label > input{
-    margin: 3px auto 3px 5px
-}
-
-
-
 #paymentInformation{
     text-align: right;
+}
+
+#paymentInformation > h1{ 
+    padding: 20px 0px 5px 0px;
+    text-align: left;
+    font-size: 25px;
+    font-weight: normal;
 }
 
 #paymentInformation > label > input{
@@ -119,14 +160,6 @@
     margin: 7px 0px 0px 7px; 
     border-radius: 5px;
     text-indent: 15px;
-}
-
-
-#paymentInformation > h1{ 
-    padding: 20px 0px 5px 0px;
-    text-align: left;
-    font-size: 25px;
-    font-weight: normal;
 }
 
 #betalKnapp{
@@ -142,6 +175,10 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+
+
+/* Faded tekst */
+
 #fadedText{
     grid-column-start: 4;
     grid-column-end: 5;
@@ -156,22 +193,9 @@
     text-align:center;
 }
 
-#inCartWrapper {
-    padding-top: 20px;
-}
 
-#totalStats{
-    display:flex;
-    justify-content:right;
-    padding-inline: 50px;
-    
-}
 
-#deliveryStats{
-    display:flex;
-    justify-content: space-between;
-    padding-inline: 50px;
-}
+/* Skalering av nettside */
 
 #CCVTekst, #postnrTekst, #kortnrTekst{
     display: none;
@@ -198,3 +222,8 @@
         display: inline-block;
     }
   }
+
+
+/* ---------------------------------------------------
+-------------------- BETALING SLUTT -------------------
+--------------------------------------------------- */
