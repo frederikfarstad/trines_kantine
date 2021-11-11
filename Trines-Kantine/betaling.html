@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestilling</title>
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
@@ -16,9 +17,14 @@
     <br>
 
     <div id="wrapper">
+        <!-- Hovedformen -->
         <form id="wrapperForm">
+
+            <!-- Div som henter personinformasjon og leveringsmetode -->
             <div id="delivery" class="roundBox bgBlack">
                 <h1 class="whiteText">Levering:</h1>
+
+                <!-- Div som henter personinformasjon -->
                 <div id="userData">
                     <label class="whiteText"> Fornavn
                         <input type="text" name="fornavn" id="firstname" placeholder="skriv her" required>
@@ -59,8 +65,7 @@
                 
                 </div>
                 
-    
-                
+                <!-- Div som henter valg av leveringsmetode -->
                 <div id="deliveryMethod">
                     <h1 class="whiteText">Leveringsmetode:</h1>
                     <div class="whiteInputDiv">
@@ -83,16 +88,21 @@
                 </div>
             </div>
     
+            <!-- Div som viser hva som er i handlekurven -->
             <div id="inCartDetails" class="roundBox bgBlack">
                 <h1 class="whiteText">I Handlevogn:</h1>
                 <div id="inCartWrapper">
-    
+                    
+                    <!-- Div som blir oppdatert med mat fra localstorage -->
                     <div id="foodInCart">
+                        <!-- Matnavn -->
                         <div id="foodType"></div>
-    
+                        
+                        <!-- Antall og pris -->
                         <div id="foodStats"></div>
                     </div>
-    
+                    
+                    <!-- Viser prisen og typen levering -->
                     <div id="deliveryStats">
                         <p id="deliveryStatsText" class="whiteText">Levering</p>
                         <output id="deliveryStatsCost" class="whiteText">49,-</output>
@@ -100,6 +110,7 @@
     
                     <br>
     
+                    <!-- Viser totalprisen -->
                     <div id="totalStats">
                         <p id="totalCostText" class="whiteText" style="text-decoration: underline;">Total:&nbsp;&nbsp;</p>
                         <output id="totalCost" class="whiteText" style="text-decoration: underline;">49,-</output>
@@ -107,11 +118,14 @@
                 </div>
             </div>
     
+            <!-- Div som henter betalingsinformasjon -->
             <div id="payment" class="roundBox bgBlack">
                 <h1 class="whiteText">Betaling:</h1>
     
                 <div id="paymentMethod">
                     <h1 class="whiteText">Betalingsmåte:</h1>
+
+                    <!-- Div som henter valg av betalingsmåte -->
                     <div class="whiteInputDiv">
                         <label> 
                             <input type="radio" name="paymentMethodInput" value="Visa" onclick="changecss(this)" checked>
@@ -131,7 +145,7 @@
                     </div>
                 </div>
     
-                
+                <!-- Div som henter kortinformasjon-->
                 <div id="paymentInformation">
                     <h1 class="whiteText">Kort:</h1>
                     <p id="kortnummerTekst" class="whiteText">Kortnummer</p>
@@ -155,17 +169,19 @@
                     </label>
                 </div>
                 
-                
-    
                 <button id="betalKnapp" type="button" onclick="pay()">Betal</button>
                 <br>
                 <br>
                 <a href="https://www.kondomeriet.no/inspirasjon/artikler/kjopsbetingelser/" target="_blank" style="text-decoration: underline;">Se betalingsvilkår</a>
     
             </div>
+
+            <!-- Div for faded text -->
             <div id="fadedText">
                 <p>Håper det smaker!</p>
             </div>
+        
+        <!-- Submitknapp som submitter formen -->
         <input type="submit" style="display:none" id="submitButton">
         </form>
         
