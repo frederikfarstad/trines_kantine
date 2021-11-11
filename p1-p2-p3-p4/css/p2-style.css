@@ -80,3 +80,13 @@ table, th, td {
     padding: 5px 5%;
     color: white;
 }
+
+li, a {
+    color: white
+}
+
+.box img {
+    height: 300px;
+    width: 600px;
+}
+
