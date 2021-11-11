@@ -112,3 +112,701 @@ body{
     width: 35px;
     height: 35px;
 }
+
+/* ---------------------------------------------------
+-------------------- BETALING START -----------------
+--------------------------------------------------- */
+
+
+/* Generelt */
+
+#wrapperForm{
+    display: grid;
+    grid-template-columns: 7% 40% 6% 40% 7%;
+    grid-template-rows: auto auto auto;
+    grid-row-gap: 50px;
+    padding: 10px;
+
+}
+
+.whiteInputDiv{
+    background-color: #FAF9F9;
+    width: 100%;
+    text-align: left;
+    border-radius: 5px;
+    
+}
+
+.whiteInputDiv > label > input{
+    margin: 3px auto 3px 5px
+}
+
+
+
+/* Levering */
+
+#delivery{
+    text-align: center;
+    padding: 20px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#delivery > h1{
+    font-weight: normal;
+}
+
+#userData{
+    text-align: right;
+}
+
+#userData > label > input{
+    width: 70%;
+    height: 50px;
+    margin: 7px 0px 0px 7px; 
+    border-radius: 5px;
+    text-indent: 15px;
+}
+
+#deliveryMethod > h1{
+    padding: 20px 0px 5px 0px;
+    text-align: left;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+
+
+/* Handlekurv */
+
+#inCartDetails{
+    width: 70%;
+    margin:auto;
+    text-align: center;
+    padding: 20px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+
+#inCartDetails > h1{
+    font-weight: normal;
+}
+
+#inCartWrapper {
+    padding-top: 20px;
+}
+
+#foodInCart{
+    display:flex;
+    justify-content: space-between;
+    padding-inline: 50px;
+}
+
+
+#foodType{
+    display: inline-block;
+    text-align: left;
+}
+
+#foodStats{
+    display: inline-block;
+}
+
+#deliveryStats{
+    display:flex;
+    justify-content: space-between;
+    padding-inline: 50px;
+}
+
+#totalStats{
+    display:flex;
+    justify-content:right;
+    padding-inline: 50px;
+    
+}
+
+
+
+/* Betaling */
+
+#payment{
+    text-align: center;
+    height: fit-content;
+    padding: 20px;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#payment > h1{
+    font-weight: normal;
+}
+
+#paymentMethod > h1{ 
+    padding: 20px 0px 5px 0px;
+    text-align: left;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+#paymentInformation{
+    text-align: right;
+}
+
+#paymentInformation > h1{ 
+    padding: 20px 0px 5px 0px;
+    text-align: left;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+#paymentInformation > label > input{
+    width: 70%;
+    height: 50px;
+    margin: 7px 0px 0px 7px; 
+    border-radius: 5px;
+    text-indent: 15px;
+}
+
+#betalKnapp{
+    background-color: #89B0AE;
+    border: 0;
+    color: #FAF9F9;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 30px;
+    padding: 25px 60px;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+
+/* Faded tekst */
+
+#fadedText{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    margin: auto;
+    font-size: 60px;
+}
+
+#fadedText > p{
+    color: rgb(128,128,128,0.5) !important;
+    text-align:center;
+}
+
+
+
+/* Skalering av nettside */
+
+#CCVTekst, #postnrTekst, #kortnrTekst{
+    display: none;
+}
+#SikkerhetskodeTekst, #postnummerTekst, #kortnummerTekst{
+    display: inline-block;
+}
+
+
+@media (max-width: 1180px) {
+    #CCVTekst {
+        display: inline-block;
+    }
+    #SikkerhetskodeTekst{
+        display: none;
+    }
+  }
+
+@media (max-width: 1020px) {
+    #postnummerTekst, #kortnummerTekst{
+        display: none;
+    }
+    #postnrTekst, #kortnrTekst {
+        display: inline-block;
+    }
+  }
+
+
+/* ---------------------------------------------------
+-------------------- BETALING SLUTT -------------------
+--------------------------------------------------- */
+
+/* ---------------------------------------------------
+-------------------- MENY START -------------------
+--------------------------------------------------- */
+
+/* Produkter */
+
+#content{
+    width: 100%;
+    display: flex;
+}
+
+#products{
+    flex: 1;
+    padding: 20px;
+    font-size: 12px;
+}
+.produkt_Boks{
+    background-color: #FFD6BA;
+    margin: 8px 50px 8px 0;
+    border-radius: 12px;
+    overflow: auto;
+    display:inline-block;
+    padding: 5px;
+    text-align: left;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.produkt_Boks > img{
+    width: 200px;
+    height: auto; 
+    float: left;
+}
+.produkt_Boks > button{
+    float: right;
+    padding: 7px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #5ba35d;
+    border: none;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.produkt_Boks > h1{
+    display: inline-block;
+    margin-bottom: 15px;
+}
+.produkt_Boks > h3{
+    margin-bottom: 20px;
+    color: rgb(100, 94, 94);
+}
+.produkt_Boks > p{
+    margin: 10px 0px;
+}
+@media (max-width: 1020px) {
+    .produkt_Boks > img{
+        width: 100%;
+    }
+    .produkt_Boks{
+        width: 250px;
+    }
+}
+
+/* Handlekurv */
+
+#handlekurv{
+    flex: 1;
+    padding: 20px;
+    font-size: 12px;
+}
+#handlekurv_Boks{
+    background-color: #555B6E;
+    border-radius: 12px;
+    color: white !important;
+    text-align: center;
+    padding: 5px;
+    width: 60%;
+    margin: 20px auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#handlekurv_Boks_Header{
+    padding: 7.5px;
+}
+#handlekurv_Content{
+    min-height: 300px;
+}
+#handlekurv_Footer{
+    margin-top: 10px;
+    font-size: 15px;
+}
+#handlekurv_Footer > button{
+    padding: 7px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #5ba35d;
+    border: none;
+    border-radius: 15px;
+    margin: 7.5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.vare_div{
+    display: grid;
+    grid-template-columns: 35% 65%;
+    margin: 15px 5px;
+    row-gap: 5px;
+}
+.navn{
+    grid-column: 1;
+    grid-row: 1;
+    color: white;
+}
+.pris_tekst{
+    color: white;
+}
+.antall-liste{
+    grid-column: 2;
+    grid-row: 1;
+    width: 30%;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid #56CCF2;
+    background-color: #eee;
+    font-size: 1.2em;
+    text-align: center;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.knp-slett{
+    text-align: center;
+    padding: .67em;
+    cursor: pointer;
+    color: white;
+    background-color: #EB5757;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+    width: 40%;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+@media (max-width: 1020px) {
+    #handlekurv{
+        width: 300px;
+    }
+}
+
+/* ---------------------------------------------------
+-------------------- MENY SLUTT ---------------------
+--------------------------------------------------- */
+
+/* ---------------------------------------------------
+-------------------- RESERVASJON START -----------------
+--------------------------------------------------- */
+
+.resInput:focus, #behov:focus{
+    outline: none;
+}
+
+#resBilde{
+    width:100%;
+    object-fit: contain;
+}
+
+.resBoks{
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%; 
+}
+
+#ledigePlasserBoks{
+    text-align: center;
+    height: 10ch;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+#resBord{
+    padding-top: 10px;
+    text-align: center;
+    padding-bottom: 15px;
+    
+    font-size: larger;
+}
+
+#resForm{
+    display: table;
+    margin: auto;
+    margin-left: auto;
+}
+
+.resLabel{
+    display: table-row;
+}
+
+.resSpan{
+    display: table-cell;
+    text-align: right;
+    padding-right: 5px;
+    vertical-align: top;
+}
+
+#antallValgt{
+    width: 100%;
+}
+
+.resInput, #antallValgt{
+    margin-bottom: 5px;
+    padding: 3px;
+    border: none;
+    border-radius: 3px;
+}
+
+#behov{
+    width: 97%;
+    resize: none;
+    padding: 3px;
+    border: none;
+    border-radius: 3px;
+}
+
+#submit{
+    margin-bottom: 25px;
+    margin-left: 100%;
+    width: 127%;
+}
+
+#ledigePlasserBoks > p{
+    padding-top: 1.5ch;
+}
+
+#resSkjemaBoks{
+    margin-bottom: 7ch;
+}
+
+#advarsel{
+    color: rgb(255, 0, 0);
+    padding-top: 0px !important;
+    display: none;
+}
+
+/* ---------------------------------------------------
+-------------------- RESERVASJON SLUTT -----------------
+--------------------------------------------------- */
+
+/* ---------------------------------------------------
+-------------------- INDEX START -------------------
+--------------------------------------------------- */
+
+/* Slideshow/header */
+.slideshow {
+    background: url('../img/slideshow_burger.jpg') no-repeat center center/cover;
+    height: 50vh;
+    color: #000;
+}
+
+.slideshow .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    height: 100%;
+}
+
+.slideshow .content h1 {
+    margin-top: 1%;
+    font-size: 55px;
+    background-color: #FFD6BA;
+    padding: 8px 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 8px;
+}
+
+.slideshow .content a {
+    color: #000;
+    background-color: #FFD6BA;
+    padding: 8px 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    font-size: 33px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 20px 0 30px;
+}
+
+.slideshow .content a:hover {
+    background-color: #ffb887;
+}
+
+.slideshow * {
+    z-index: 10;
+}
+
+.slideshow #button-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -27vh;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.slideshow #button-container button{
+    background-color: #555B6E;
+    width: 50px;
+    height: 50px;
+    padding-bottom: 5px;
+    border: none;
+    border-radius: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    font-size: 30px;
+    color: #BEE3DB;
+}
+
+.slideshow #button-container button:hover {
+    background-color: #3f4352;
+}
+
+/* infobokser */
+
+#info-box-container {
+    margin: 60px 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-box {
+    width: 23%;
+    padding: 15px;
+    background-color: #FFD6BA;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-box img {
+    width: 100%;
+    border-radius: 2px;
+}
+
+.info-box h3 {
+    text-align: center;
+}
+
+.info-box a {
+    margin-top: 10px;
+    background-color: #89B0AE;
+    color: #FAF9F9;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.info-box a:hover {
+    background-color: #7aa6a4;
+}
+
+/* ---------------------------------------------------
+-------------------- INDEX SLUTT -------------------
+--------------------------------------------------- */
+
+/* ---------------------------------------------------
+-------------------- ABOUT START -------------------
+--------------------------------------------------- */
+
+.grid-container{
+    display: grid;
+    grid-gap: 50px;
+    margin: 50px;
+    text-align: center;
+}
+
+
+.item1{
+
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 8;
+}
+.item2{
+
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+.item3{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.item4{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+.item5{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
+
+#hovedd{
+    position: fixed;
+    width: 50%; 
+    text-align: center;
+}
+
+
+#fasade{
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+#map{
+    height: 400px;
+        /* The height is 400 pixels */
+    margin: 10px;
+        /* The width is the width of the web page */
+    
+}
+
+#over{
+    text-align: center;
+    font-size: 70px;
+}
+.h{
+    font-size: 23px;
+    margin: 20px;
+    line-height: 1.5;
+}
+.h2{
+    margin: 10px;
+}
+.p{
+    margin: 20px;
+    text-align: left;
+    font-size: 20px;
+    line-height: 1.5;  
+}
+.shadow{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* ---------------------------------------------------
+-------------------- ABOUT SLUTT -------------------
+--------------------------------------------------- */
