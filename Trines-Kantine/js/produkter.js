@@ -1,151 +1,150 @@
 const handlekurv = {
     KEY: "egirejgrdkske",
-    innhold: [],
-    init(){
-        let _innhold = localStorage.getItem(handlekurv.KEY)
-        if (_innhold) {
-            handlekurv.innhold = JSON.parse(_innhold)
-        }
-        handlekurv.sync()
-    },
-    sync(){
-        let _handlekurv = JSON.stringify(handlekurv.innhold)
-        localStorage.setItem(handlekurv.KEY, _handlekurv)
-    },
-    find(id){
-        let match = handlekurv.innhold.filter(item=>{
-            if (item.id == id) {
-                return true
-            };
-        });
-        if (match && match[0]) {
-            return match[0]
-        }
-    },
-    add(id){
-        if (handlekurv.find(id)) {
-            handlekurv.increase(id, 1);
-        }else{
-            let arr = produkter.filter(produkt=>{
-                if (produkt.id == id) {
-                    return true;
-                }
-            });
-            if (arr && arr[0]) {
-                let obj = {
-                    id: arr[0].id,
-                    navn: arr[0].navn,
-                    antall: 1,
-                    pris: arr[0].pris
-                };
-                handlekurv.innhold.push(obj);
-                handlekurv.sync();
-                handlekurv.vis_sum()
-            }
-        }
-    },
-    increase(id, antall=1){
-        handlekurv.innhold = handlekurv.innhold.map(item=>{
-            if (item.id === id) {
-                item.antall = parseInt(item.antall) + antall;
-            }return item;
-        });
-        handlekurv.sync();
-        visHandlekurv()
-        handlekurv.vis_sum()
-        handlekurv.vis_pris(id)
-    },
-    reduce(id, antall=1){
-        handlekurv.innhold = handlekurv.innhold.map(item=>{
-            if (item.id === id) {
-                item.antall = parseInt(item.antall) - antall;
-            }return item;
-        });
-        handlekurv.innhold.forEach(item=>{
-            if (item.id === id && item.antall === 0) {
-                handlekurv.remove(id)
-            };
-        });
-        handlekurv.sync();
-        visHandlekurv()
-        handlekurv.vis_sum()
-        handlekurv.vis_pris(id)
-    },
-    increase_by_list(event){
-        handlekurv.innhold = handlekurv.innhold.map(item=>{
-            if (item.id === event.target.classList[1]) {
-                item.antall = event.target.value;
-            }return item;
-        });
-        handlekurv.innhold.forEach(item=>{
-            if (item.id === event.target.classList[1] && item.antall <= 0) {
-                handlekurv.remove(event.target.classList[1])
-            };if (item.id === event.target.classList[1] && item.antall > 0) {
-                handlekurv.vis_pris(event.target.classList[1])
-            }
-        });
-        handlekurv.sync();
-        handlekurv.vis_sum();
-    },
-    remove(id){
-        handlekurv.innhold = handlekurv.innhold.filter(item=>{
-            if (item.id !== id) {
-                return true
-            };
-        });
-        handlekurv.sync();
-        visHandlekurv()
-        handlekurv.vis_sum()
-    },
-    remove_by_list(event){
-        handlekurv.innhold = handlekurv.innhold.filter(item=>{
-            if (item.id !== event.target.classList[1]) {
-                return true
-            };
-        });
-        handlekurv.sync();
-        visHandlekurv();
-        handlekurv.vis_sum()
-    },
-    empty(){
-        handlekurv.innhold = [];
-        handlekurv.sync();
-    },
-    sort(felt="navn"){ // kan fjernes!! bør kanskje også
-        let sortert = handlekurv.innhold.sort((a, b)=>{
-            if (a[felt] > b[felt]) {
-                return 1;
-            }else if (a[felt] < b[felt]) {
-                return -1;
-            }else{
-                return 0;
-            }
-        });return sortert; 
-    },
-    vis_sum(){
-        let sum_tekst = document.getElementById("sum")
-        sum = 0
-        handlekurv.innhold.forEach(item=>{
-            sum = sum + (item.pris * parseInt(item.antall))
-        })
-        sum_tekst.innerText = sum + "kr"
-    },
-    vis_pris(c){
-        let oc = c + "_pris"
-        let pris_tekst = document.getElementById(oc)
-        let pris = 0
-        handlekurv.innhold.forEach(item=>{
-            if (item.id == c) {
-                pris = item.pris * parseInt(item.antall)
-            }
-        })
-        pris_tekst.innerText = pris + "kr"
+    innhold: []
+}
+function init(){
+    let _innhold = localStorage.getItem(handlekurv.KEY)
+    if (_innhold) {
+        handlekurv.innhold = JSON.parse(_innhold)
     }
+    sync()
+}
+function sync(){
+    let _handlekurv = JSON.stringify(handlekurv.innhold)
+    localStorage.setItem(handlekurv.KEY, _handlekurv)
+}
+function find(id){
+    let match = handlekurv.innhold.filter(item=>{
+        if (item.id == id) {
+            return true
+        };
+    });
+    if (match && match[0]) {
+        return match[0]
+    }
+}
+function add(id){
+    if (find(id)) {
+        increase(id, 1);
+    }else{
+        let arr = produkter.filter(produkt=>{
+            if (produkt.id == id) {
+                return true;
+            }
+        });
+        if (arr && arr[0]) {
+            let obj = {
+                id: arr[0].id,
+                navn: arr[0].navn,
+                antall: 1,
+                pris: arr[0].pris
+            };
+            handlekurv.innhold.push(obj);
+            sync();
+            vis_sum()
+        }
+    }
+}
+function increase(id, antall=1){
+    handlekurv.innhold = handlekurv.innhold.map(item=>{
+        if (item.id === id) {
+            item.antall = parseInt(item.antall) + antall;
+        }return item;
+    });
+    sync();
+    visHandlekurv()
+    vis_sum()
+    vis_pris(id)
+}
+function reduce(id, antall=1){
+    handlekurv.innhold = handlekurv.innhold.map(item=>{
+        if (item.id === id) {
+            item.antall = parseInt(item.antall) - antall;
+        }return item;
+    });
+    handlekurv.innhold.forEach(item=>{
+        if (item.id === id && item.antall === 0) {
+            remove(id)
+        };
+    });
+    sync();
+    visHandlekurv()
+    vis_sum()
+    vis_pris(id)
+}
+function increase_by_list(event){
+    handlekurv.innhold = handlekurv.innhold.map(item=>{
+        if (item.id === event.target.classList[1]) {
+            item.antall = event.target.value;
+        }return item;
+    });
+    handlekurv.innhold.forEach(item=>{
+        if (item.id === event.target.classList[1] && item.antall <= 0) {
+            remove(event.target.classList[1])
+        };if (item.id === event.target.classList[1] && item.antall > 0) {
+            vis_pris(event.target.classList[1])
+        }
+    });
+    sync();
+    vis_sum();
+}
+function remove(id){
+    handlekurv.innhold = handlekurv.innhold.filter(item=>{
+        if (item.id !== id) {
+            return true
+        };
+    });
+    sync();
+    visHandlekurv()
+    vis_sum()
+}
+function remove_by_list(event){
+    handlekurv.innhold = handlekurv.innhold.filter(item=>{
+        if (item.id !== event.target.classList[1]) {
+            return true
+        };
+    });
+    sync();
+    visHandlekurv();
+    vis_sum()
+}
+function empty(){
+    handlekurv.innhold = [];
+    sync();
+}
+function sort(felt="navn"){ // kan fjernes!! bør kanskje også
+    let sortert = handlekurv.innhold.sort((a, b)=>{
+        if (a[felt] > b[felt]) {
+            return 1;
+        }else if (a[felt] < b[felt]) {
+            return -1;
+        }else{
+            return 0;
+        }
+    });return sortert; 
+}
+function vis_sum(){
+    let sum_tekst = document.getElementById("sum")
+    sum = 0
+    handlekurv.innhold.forEach(item=>{
+        sum = sum + (item.pris * parseInt(item.antall))
+    })
+    sum_tekst.innerText = sum + "kr"
+}
+function vis_pris(c){
+    let oc = c + "_pris"
+    let pris_tekst = document.getElementById(oc)
+    let pris = 0
+    handlekurv.innhold.forEach(item=>{
+        if (item.id == c) {
+            pris = item.pris * parseInt(item.antall)
+        }
+    })
+    pris_tekst.innerText = pris + "kr"
 }
 function visHandlekurv() {
     let handlekurv_seksjon = document.getElementById("handlekurv_Content")
     handlekurv_seksjon.innerText = ""
-    //let s = handlekurv.sort("antall")
     let s = handlekurv.innhold
     s.forEach(produkt=>{
         let vare = document.createElement("div")
@@ -181,9 +180,9 @@ function visHandlekurv() {
     var elements2 = document.getElementsByClassName("knp-slett")
     if (handlekurv.innhold !== "") {
         for (let i = 0; i < elements1.length; i++) {
-            elements1[i].addEventListener("change", handlekurv.increase_by_list)
+            elements1[i].addEventListener("change", increase_by_list)
         }for (let j = 0; j < elements2.length; j++) {
-            elements2[j].addEventListener("click", handlekurv.remove_by_list)
+            elements2[j].addEventListener("click", remove_by_list)
         }
     }/*else{
         removeEventListener()
@@ -240,11 +239,12 @@ function main(){
 }
 function legg_Til(ev) {
     ev.preventDefault();
-    handlekurv.add(ev.target.id)
+    add(ev.target.id)
     visHandlekurv()
 }
 main()
 window.addEventListener("DOMContentLoaded", ()=>{
-    handlekurv.init()
+    init()
+    vis_sum()
     visHandlekurv()
 })

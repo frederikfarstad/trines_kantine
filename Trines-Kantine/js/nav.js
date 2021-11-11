@@ -22,9 +22,7 @@ for (i = 0; i < links.length; i++) {
     aEl = document.createElement("a");
     aEl.href = links[i].href;
     linksEl.appendChild(aEl)
-    liEl = document.createElement("li");
-    liEl.innerText = links[i].tekst;
-    aEl.appendChild(liEl);
+    aEl.innerText = links[i].tekst;
 }
 
 document.body.prepend(navEl);

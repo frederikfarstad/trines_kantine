@@ -43,11 +43,11 @@
     width: 350px;
 }
 
-#links li {
+#links a {
     color: #BEE3DB;
 }
 
-#links li:hover {
+#links a:hover {
     color: #89B0AE;
 }
 
