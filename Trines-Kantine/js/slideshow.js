@@ -1,5 +1,5 @@
-let prevButtonEl = document.getElementById("-1");
-let nextButtonEl = document.getElementById("1");
+const prevButtonEl = document.getElementById("-1");
+const nextButtonEl = document.getElementById("1");
 
 let counter = 0
 
@@ -11,10 +11,22 @@ const retter = [{navn: "Grooov Burger", bilde: "slideshow_burger.jpg"},
                 {navn: "Heftig Kebab", bilde: "slideshow_kebab.jpg"}];
 
 function slideshow_manual(e) {
+    clicked_value = Number(e.target.value)
+    slideshow(clicked_value)
+}
+
+function slideshow_automatic() {
+    slideshow(1)
+    setTimeout("slideshow_automatic()", 4500);
+}
+
+function slideshow(value) {
     let bakgrunnEl = document.getElementById("bakgrunn");
     let rettnavnEl = document.getElementById("rettnavn");
-    
-    value = Number(e.target.value)
+    if (value != 1 || value != -1) {
+        value = 1
+    }
+
     counter += value
     
     if (counter < 0) {
@@ -25,24 +37,6 @@ function slideshow_manual(e) {
 
     bakgrunnEl.style.background = `url('img/${retter[counter].bilde}') no-repeat center center/cover`;
     rettnavnEl.innerText = retter[counter].navn
-}
-
-function slideshow_automatic() {
-    let bakgrunnEl = document.getElementById("bakgrunn");
-    let rettnavnEl = document.getElementById("rettnavn");
-
-    counter += 1
-    
-    if (counter < 0) {
-        counter = retter.length - 1;
-    } else if (counter == retter.length) {
-        counter = 0;
-    }
-
-    bakgrunnEl.style.background = `url('img/${retter[counter].bilde}') no-repeat center center/cover`;
-    rettnavnEl.innerText = retter[counter].navn
-
-    setTimeout("slideshow_automatic()", 4500);
 }
 
 window.onload = slideshow_automatic;
