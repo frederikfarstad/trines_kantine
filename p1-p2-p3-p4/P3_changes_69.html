@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/p3-style.css">
+    <title>P3</title>
+</head>
+<body>
+    <header>
+        <h1>P3 Project Coding</h1>
+        <h2>Vebjørn, Trym, Frederik, Erik og Erik</h2>
+    </header>
+    <section id="menu">
+        <ul>
+            <li><a href="#header">Header</a></li>
+            <li><a href="#administrative_detaljer">Administrative detajer</a></li>
+            <li><a href="#changes">Kode og endringer fra opprinnelig plan</a></li>
+            <li><a href="#navigasjonsstruktur">Oppdatert navigasjonsstruktur</a></li>
+            <li><a href="#arbeidsfordeling">Siste arbeidsfordeling</a></li>
+        </ul>
+    </section>
+
+    <section id="header" class="box">
+        <h2>Header</h2>
+        <p>Tittel: P3 - Trines Kantine</p>
+        <p>Vebjørn, Trym, Erik, Erik, Frederik</p>
+        <p>11.11.2021</p> 
+        <p>Link til nettside: <a href="https://folk.ntnu.no/erikmly/Trines-Kantine/" id="websiteLink">https://folk.ntnu.no/erikmly/Trines-Kantine/</a></p>       
+    </section>
+
+    <section id="administrative_detaljer" class="box">
+        <h2>Administrative detaljer</h2>
+        <p>
+          Klientens navn: Trine-Berit Kantine
+        </p>
+        <p>
+          Posisjon i organisasjonen: CEO av Trines Kantine          
+        </p>
+    </section>
+
+    <section id="changes" class="box">
+        <h2>Kode og endringer</h2>
+        <h1>Oppfyllelse av minstekrav:</h1>
+        <p>Trym: Oppfylte JS-kravet ved å lage reservasjon.js til reservasjon.html
+        </p>
+        <p>Vebjørn: Oppfylt JS-krav ved å lage about.js til about.html
+        </p>
+        <p>Erik D: Oppfylt JS-kravet ved å lage slideshow.js til index.html
+        </p>
+
+        <p>Frederik: Oppfylte JS-krav gjennom betaling.js
+        </p>
+
+        <br>
+
+        <p>Modularity-kravet ble oppfylt ved å lage nav-bar og footer i JS, og ved å ha et felles style.css-dokument. </p>
+
+        <br>
+
+        <h1>Endringer som har blitt gjort:</h1>
+        <h3>Endringer i reservasjon.html:</h3>
+        <p>Vi endret fra å skulle ha 2 drop-down menyer til å kun ha én. Man kan kun velge antall gjester med drop-down, ikke lokasjon. 
+            Det er heller ikke oversikt over åpningstidene eller adressene til ulike restauranter. 
+        </p>
+
+        <h3>Endringer i index.html:</h3>
+        <p>Knappene har fått et < og > tegn istedenfor å være utfylte trekanter ut.
+            Fjernet handlekurv og michelin-stjerner i navigasjonsbaren
+            Gjorde knappene bredere i infoboksene
+        </p>
+
+        <h3>Endringer i kontakt.html:</h3>
+        <p>Vi endte opp med å ikke ha siden, og heller ha denne informasjonen på about.html. 
+        </p>
+
+        <h3>Endringer i about.html:</h3>
+        <p>La til en js fil for API som vi bruker til karttjeneste på siden. ellers var det svært lite som ble endret</p>
+
+        <h3>Endringer i betaling.html:</h3>
+        <p>Vi endret visningen av varene i handlekurven. Opprinnelig skulle det være linjer som skiller elementene, men dette utelot vi. Handlekurv-div’en er også smalere enn resten av div’ene, dette er intensjonen.
+        </p>
+
+    </section>
+
+    <section id="navigasjonsstruktur" class="box">
+        <h2>Oppdatert filstruktur</h2>
+        <p>Alle filene ligger i en mappe med navn "Trines-Kantine"</p>
+        <ul>
+        <li>index.html</li>
+        <li>about.html</li>
+        <li>meny.html</li>
+        <li>betaling.html</li>
+        <li>reservasjon.html</li>
+        <li>img
+            <ul>
+                <li>400grader.jpg</li>
+                <li>bord.jpg</li>
+                <li>cheeseburger.png</li>
+                <li>facebook.png</li>
+                <li>falafel.png</li>
+                <li>hamburger.png</li>
+                <li>instagram.png</li>
+                <li>logo.png</li>
+                <li>logo2.png</li>
+                <li>margherita.png</li>
+                <li>mat.jpg</li>
+                <li>michelin.png</li>
+                <li>pita.png</li>
+                <li>pommes-frites.png</li>
+                <li>reservasjon.jpg</li>
+                <li>restaurant_fasade.jpg</li>
+                <li>rullekebab.png</li>
+                <li>slideshow_burger.jpg</li>
+                <li>slideshow_flatbrod.jpg</li>
+                <li>slideshow_kebab.jpg</li>
+                <li>twitter.png</li>
+            </ul>
+        </li>
+        <li>js
+            <ul>
+                <li>about2.js</li>
+                <li>betaling.js</li>
+                <li>footer.js</li>
+                <li>nav.js</li>
+                <li>produkter.js</li>
+                <li>reservasjon.js</li>
+                <li>slideshow.js</li>
+            </ul>
+        </li>
+        <li>css
+            <ul>
+                <li>style.css</li>
+            </ul>
+        </li>
+        </ul>    
+    </section>
+
+    <section id="arbeidsfordeling" class="box">
+    <h2>Endelig arbeidsfordeling</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Filnavn</th>
+            <th>Beskrivelse</th>
+            <th>Ansvarlig</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>index.html<br>slideshow.js<br>nav.js</td>
+            <td>Hovedsiden og navigasjonsbar</td>
+            <td>Erik D</td>
+        </tr>
+        <tr>
+            <td>about.hmtl<br>about.js</td>
+            <td>
+            Om oss-siden med info om Trines Kantine
+            </td>
+            <td>Vebjørn</td>
+        </tr>
+        <tr>
+            <td>meny.html<br>footer.js<br>produkter.js</td>
+            <td>
+            Meny, handlekurv og footer
+            </td>
+            <td>Erik L</td>
+        </tr>
+        <tr>
+            <td>betaling.html<br>betaling.js</td>
+            <td>
+            Side for levering og betaling
+            </td>
+            <td>Frederik</td>
+        </tr>
+        <tr>
+            <td>reservasjon.html<br>reservation.js</td>
+            <td>En funksjon som sjekker om det er ledige bord og reserverer et bord til brukeren dersom det er ledig</td>
+            <td>Trym</td>
+        </tr>
+        <tr>
+            <td>style.css</td>
+            <td>Hovedfilen i css, som inneholder css</td>
+            <td>Alle</td>
+        </tr>
+        </tbody>
+    </table>
+    </section>
+
+</body>
+</html>
