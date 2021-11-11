@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/p1-style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>P1 Project Requirements</h1>
+        <img src="img/trine.jpg" alt="Trine-Berit">
+        <h2>Vebjørn, Trym, Frederik, Erik og Erik</h2>
+    </header>
+    <section id="menu">
+        <ul>
+            <li><a href="#administrative">Administrativt</a></li>
+            <li><a href="#testdokument">testdokument</a></li>
+            <li><a href="#data">Data</a></li>
+            <li><a href="#tilbakemeldinger">Tilbakemeldinger</a></li>
+            <li><a href="#respons">Respons</a></li>
+            <li><a href="#refleksjon">Refleksjon</a></li>
+        </ul>
+    </section>
+    <section id="administrative" class="box">
+        <h2>Administrativt</h2>
+        <p>Klientens navn: Trine-Berit Kantine</p>
+        <p>Posisjon i organisasjonen: CEO av Trines Kantine</p>
+    </section>
+    <section id="testdokument" class="box">
+        <h2>Testdokument</h2>
+            <p>Vi lagde en google form med ganske generelle spørsmål. Vi samlet informasjon om hvem som svarte, samt enheten og nettleseren som ble brukt. Videre spurte vi om hva testerne syntes om det visuelle designet, navigasjonsstrukturen, oppdagede problemer, ønskede forbedringer og andre kommentarer.
+            I tillegg fikk vi noen av testerne til å dele skjerm, mens de testet nettsiden slik at vi kunne få en grundigere tilbakemelding. 
+
+            Link til Google Forms: <a href="https://docs.google.com/forms/d/e/1FAIpQLScAcBtsA6k9jUn3R9SpaEa-i4XLfbkHuLJEVcUWr8kxURqEvA/viewform?usp=sf_link"><span>https://docs.google.com/forms/d/e/1FAIpQLScAcBtsA6k9jUn3R9SpaEa-i4XLfbkHuLJEVcUWr8kxURqEvA/viewform?usp=sf_link</span></a></p>
+    </section>
+    <section id="data" class="box">
+        <h2>Data</h2>
+        <h3>Testere</h3>
+        <p>Største testgrupper:</p>
+        <li>Student ved IDI: 17.6%</li>
+        <li>Student, annen realfag: 17.6%</li>
+        <li>Annet (ink andre studenter): 64.8%</li>
+        <img src="img/testgruppe.PNG" alt="Testgruppe">
+        <h3>Nettleserfordeling</h3>
+        <img src="img/nettleserfordeling.PNG" alt="Netttleserfordeling">
+        <h3>Enhetsfordeling</h3>
+        <img src="img/enhetsfordeling.PNG" alt="Enhetsfordeling">
+    </section>
+    <section id="tilbakemeldinger" class="box">
+        <h2>Tilbakemeldinger</h2>
+        <h3>Visuelt design</h3>
+            <p>De fleste var godt fornøyd med det visuelle, og vi fikk generelt veldig gode tilbakemeldinger.</p>
+            <p>En person mislikte fargepaletten, og syntes det ikke burde være skygger bak infoboksene. Var også flere som mente det var godt fargevalg.</p>
+            <p>En annen kommenterte “Syns avrundingen på flere av boksene er litt for smooth og det burde vært litt mer uniformt.”</p>
+            <p>Fikk også tilbakemelding på at meny-siden ser ut som en bensinstasjonsmeny og at alt har 2015-preg. Dette er vi egentlig storfornøyde med.</p>
+            <p>Det var også et par kommentarer på lav bildekvalitet, men også en som mente det var for høy.</p>
+        <h3>Navigasjon</h3>
+            <p>94.1% av testerne synes navigasjonen på siden var intuitiv. <br>
+                Resterende ga ikke noen videre forklaring på hvorfor de ikke synes det.
+            </p>
+        <h3>Oppdagede problemer</h3>
+        <ul>
+            <li>Reservasjonssiden var ikke knyttet til en dato eller et tidspunkt</li>
+            <li>Syyykt flatbrød fantes ikke på menyen</li>
+            <li>Google maps lastet med en feilmelding</li>
+            <li>Bestillingssiden aksepterer tekstinput</li>
+            <li>Mulig å legge inn en bestilling uten å ha valgt noen varer</li>
+            <li>Ingen av sosiale medier linkene funker</li>
+            <li>Utløpsdatoen til kortet kunne være utgått</li>
+            <li>CVCen kunne være mer enn 3 siffer langt</li>
+            <li>Logo er veldig blurry</li>
+            <li>Kan ikke copy paste kontaktinfoen på “om oss”</li>
+            <li>Når jeg velger å betale med vipps, må jeg fortsatt skrive inn kortnummer for å betale.</li>
+        </ul>
+        <h3>Ønskede forbedringer</h3>
+        <ul>
+            <li>Timeren ved banneren burde kanskje resettes når man klikker seg bortover den</li>
+            <li>"Om oss" (oppe til høyre), og "Om restauranten" (nede til venstre på forsiden) leder til samme side</li>
+            <li>Når jeg blar (trykker på pilen) til høyre (mellom de 3 bildene øverst på forsiden) så tar ikke timeren hensyn til at jeg nettopp bladd til høyre</li>
+            <li>Ser dere bruker alert for validering av forms på betalingssiden , som er deprecated og blir utfaset av blant annet chrome</li>
+            <li>Man burde kanskje også kunne se handlekurven sin hvis man går ut fra meny siden</li>
+            <li>Flere valg ved reservasjon</li>
+            <li>Når man bestiller bør man ha flytende handlekurv, hvor enn vi er på siden, så vi kan se at vi har klikket riktig.</li>
+            <li>Kanskje lagt til en kontroll på at kortets utløpsdato > dagens dato</li>
+            <li>Noe høy bildekvalitet på noen av bildene, da nedlastingstiden blir litt treg.</li>
+            <li>Mindre tomrom på sidene</li>
+            <li>Mer spennende bakgrunn</li>
+            <li>I bestillingsfeltet (der bestillingene man har lagt inn vises) kunne det gjerne være en + og - slik at man kan øke eller redusere antallet med det antallet man ønsker.</li>
+            <li>På leveringsalternativer bør det stå en forklaring til ha de ulike leveringsalternativene innebærer.</li>
+            <li>Slippe å bla ned for å reservere og ting</li>
+        </ul>
+        <h3>Andre kommentarer</h3>
+        <ul>
+            <li>Betalingsvilkårene var gøy</li>
+            <li>Oversiktlig og gjorde det den skal</li>
+            <li>erik david bad</li>
+            <li>Godt jobba, liker guttaviben &lt;333</li>
+            <li>Trine personal delivery hadde ikke happy ending</li>
+            <li>Likte kartfunksjonaliteten, ganske artig! Forsiden var veldig fin! ÙwÙ :3</li>
+        </ul>
+    </section>
+    <section id="respons" class="box">
+        <h2>Respons</h2>
+        <p>Mye av den mottatte kritikken handler om konkrete ting som vi kunne forbedret, og som vi er enige i. Ting som lav bildekvalitet, mangel på valg av tid ved reservasjon, sosiale medier linker som ikke fungerer, og mulighet for å legge inn kort med utløpt dato, er alle problemer som relativt enkelt kunne fikses etter endt prosjekt. Det aller meste går på JS- eller HTML-implementasjon.</p>
+        <p>Generelt var testerne svært positive til siden, selv med problemene som ble oppdaget</p>
+        <p>Som følge av tilbakemeldingene har vi endret følgende:</p>
+        <ul>
+            <li>Fjernet validering via alerts (JS). Gikk over til validering gjennom form element.</li>
+            <li>Lagt til kontroll av kortets utløpsdato.</li>
+            <li>Fikset at man ikke trenger kortinformasjon når Vipps eller Klarna er valgt som betalingsmetode.</li>
+        </ul>
+    </section>
+    <section id="refleksjon" class="box">
+        <h2>Refleksjon</h2>
+        <p>Under er en liste med erfaringer fra prosjektet som vi kommer til å ta med oss videre</p>
+        <ul>
+            <li>Vi burde ha fullført litt tidligere for å kunne gjøre mer fra de tilbakemeldinger vi fikk.</li>
+            <li>Vi har lært at vi burde brukt merge-requests i gitlab, i stede for å merge branchene inn i master via terminal.</li>
+            <li>Vi har generelt blitt mer drevne på git etter utallige komplikasjoner.</li>
+            <li>Vi har fått eksperimentert litt med API’er (google maps).gb</li>
+            <li>Kunne designet noen felles CSS-klasser i begynnelsen slik at vi kunne unngått å bruke så mange linjer med CSS</li>
+        </ul>
+    </section>
+</body>
+</html>
