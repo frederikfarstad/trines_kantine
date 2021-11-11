@@ -209,7 +209,6 @@ body{
     padding-inline: 50px;
 }
 
-
 #foodType{
     display: inline-block;
     text-align: left;
@@ -315,6 +314,7 @@ body{
 #CCVTekst, #postnrTekst, #kortnrTekst{
     display: none;
 }
+
 #SikkerhetskodeTekst, #postnummerTekst, #kortnummerTekst{
     display: inline-block;
 }
