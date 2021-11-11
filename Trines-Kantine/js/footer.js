@@ -17,7 +17,7 @@ const images = [{src: "img/twitter.png", alt: "Twitter-logo", href: "https://twi
 
 
 
-function main(){
+function main(){ // funksjon for å lage footer
     document.body.appendChild(footer);
     footer.appendChild(logo)
     footer.appendChild(text_content);

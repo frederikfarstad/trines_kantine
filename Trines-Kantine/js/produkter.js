@@ -1,19 +1,23 @@
+// lager en konstant for handlekurven, med en nøkkel som skal brukes for å få tilgang og en tom array
+// hentet inspirasjon om localstorage og funksjoner om dette fra https://gist.github.com/prof3ssorSt3v3/3e15d06a8128d6ca7deaa831a7a1e52b
 const handlekurv = {
     KEY: "egirejgrdkske",
     innhold: []
-}
-function init(){
+} 
+
+function init(){ 
+    // funksjon som kjøres da siden har lastet inn. sjekker om det er noe i localstorage og setter det i konstanten handlekurv
     let _innhold = localStorage.getItem(handlekurv.KEY)
     if (_innhold) {
-        handlekurv.innhold = JSON.parse(_innhold)
+        handlekurv.innhold = JSON.parse(_innhold) 
     }
-    sync()
+    sync() 
 }
-function sync(){
+function sync(){ // oppdaterer localstorage med hva som er i handlekurven
     let _handlekurv = JSON.stringify(handlekurv.innhold)
-    localStorage.setItem(handlekurv.KEY, _handlekurv)
+    localStorage.setItem(handlekurv.KEY, _handlekurv) 
 }
-function find(id){
+function find(id){ // finner en vare basert på id og returnerer den
     let match = handlekurv.innhold.filter(item=>{
         if (item.id == id) {
             return true
@@ -23,32 +27,32 @@ function find(id){
         return match[0]
     }
 }
-function add(id){
+function add(id){ // legger ting til i handlekurven
     if (find(id)) {
-        increase(id, 1);
-    }else{
+        increase(id, 1); // er den allerede i handlekurven økes den kun med 1
+    }else{ // ellers lages produktet og blir sendt inn i handlekurven
         let arr = produkter.filter(produkt=>{
-            if (produkt.id == id) {
+            if (produkt.id == id) { // finner det aktuelle produktet i produkter-konstanten
                 return true;
             }
         });
-        if (arr && arr[0]) {
+        if (arr && arr[0]) { // lager objektet og henter relevant informasjon fra produkter-konstanten
             let obj = {
                 id: arr[0].id,
                 navn: arr[0].navn,
                 antall: 1,
                 pris: arr[0].pris
             };
-            handlekurv.innhold.push(obj);
+            handlekurv.innhold.push(obj); // sender det nylagde produktet inn i handlekurven 
             sync();
             vis_sum()
         }
     }
 }
-function increase(id, antall=1){
+function increase(id, antall=1){ // funksjon for å øke antall i handlekurv. defaulter til å øke med 1
     handlekurv.innhold = handlekurv.innhold.map(item=>{
         if (item.id === id) {
-            item.antall = parseInt(item.antall) + antall;
+            item.antall = parseInt(item.antall) + antall; 
         }return item;
     });
     sync();
@@ -56,39 +60,23 @@ function increase(id, antall=1){
     vis_sum()
     vis_pris(id)
 }
-function reduce(id, antall=1){
-    handlekurv.innhold = handlekurv.innhold.map(item=>{
-        if (item.id === id) {
-            item.antall = parseInt(item.antall) - antall;
-        }return item;
-    });
-    handlekurv.innhold.forEach(item=>{
-        if (item.id === id && item.antall === 0) {
-            remove(id)
-        };
-    });
-    sync();
-    visHandlekurv()
-    vis_sum()
-    vis_pris(id)
-}
-function increase_by_list(event){
+function change_by_list(event){ // trengtes egen funksjon for å øke og minke med input-listen, som trigges med eventlistener
     handlekurv.innhold = handlekurv.innhold.map(item=>{
         if (item.id === event.target.classList[1]) {
-            item.antall = event.target.value;
+            item.antall = event.target.value; // setter antallet til antallet i input-feltet
         }return item;
     });
-    handlekurv.innhold.forEach(item=>{
+    handlekurv.innhold.forEach(item=>{ // fjerner produktet om antallet blir 0 eller færre, og oppdaterer prisen
         if (item.id === event.target.classList[1] && item.antall <= 0) {
             remove(event.target.classList[1])
-        };if (item.id === event.target.classList[1] && item.antall > 0) {
+        }if (item.id === event.target.classList[1] && item.antall > 0) {
             vis_pris(event.target.classList[1])
         }
     });
     sync();
     vis_sum();
 }
-function remove(id){
+function remove(id){ // fjerner produktet
     handlekurv.innhold = handlekurv.innhold.filter(item=>{
         if (item.id !== id) {
             return true
@@ -98,7 +86,7 @@ function remove(id){
     visHandlekurv()
     vis_sum()
 }
-function remove_by_list(event){
+function remove_by_btn(event){ // egen funksjon for å fjerne produktet med FJERN-knappen
     handlekurv.innhold = handlekurv.innhold.filter(item=>{
         if (item.id !== event.target.classList[1]) {
             return true
@@ -108,22 +96,7 @@ function remove_by_list(event){
     visHandlekurv();
     vis_sum()
 }
-function empty(){
-    handlekurv.innhold = [];
-    sync();
-}
-function sort(felt="navn"){ // kan fjernes!! bør kanskje også
-    let sortert = handlekurv.innhold.sort((a, b)=>{
-        if (a[felt] > b[felt]) {
-            return 1;
-        }else if (a[felt] < b[felt]) {
-            return -1;
-        }else{
-            return 0;
-        }
-    });return sortert; 
-}
-function vis_sum(){
+function vis_sum(){ // funksjon for å oppdatere summen av varene
     let sum_tekst = document.getElementById("sum")
     sum = 0
     handlekurv.innhold.forEach(item=>{
@@ -131,18 +104,18 @@ function vis_sum(){
     })
     sum_tekst.innerText = sum + "kr"
 }
-function vis_pris(c){
-    let oc = c + "_pris"
-    let pris_tekst = document.getElementById(oc)
+function vis_pris(id){ // funksjon for å vise prisen til produktene. pris * antall
+    let pris_id = id + "_pris"
+    let pris_tekst = document.getElementById(pris_id)
     let pris = 0
     handlekurv.innhold.forEach(item=>{
-        if (item.id == c) {
+        if (item.id == id) {
             pris = item.pris * parseInt(item.antall)
         }
     })
     pris_tekst.innerText = pris + "kr"
 }
-function visHandlekurv() {
+function visHandlekurv() { // funksjon for å vise den oppdaterte handlekurven fra localstorage
     let handlekurv_seksjon = document.getElementById("handlekurv_Content")
     handlekurv_seksjon.innerText = ""
     let s = handlekurv.innhold
@@ -176,22 +149,18 @@ function visHandlekurv() {
         fjern.innerText = "Fjern"
         vare.appendChild(fjern)
     })
-    var elements1 = document.getElementsByClassName("antall-liste")
+    var elements1 = document.getElementsByClassName("antall-liste") // input-listen og FJERN-knappen
     var elements2 = document.getElementsByClassName("knp-slett")
     if (handlekurv.innhold !== "") {
-        for (let i = 0; i < elements1.length; i++) {
-            elements1[i].addEventListener("change", increase_by_list)
+        for (let i = 0; i < elements1.length; i++) { // eventlistener for input-listen, og FJERN-knappen
+            elements1[i].addEventListener("change", change_by_list)
         }for (let j = 0; j < elements2.length; j++) {
-            elements2[j].addEventListener("click", remove_by_list)
+            elements2[j].addEventListener("click", remove_by_btn)
         }
-    }/*else{
-        removeEventListener()
-    }*/
-    // handlekurv_seksjon.getElementsByClassName("antall-liste")[0].addEventListener("change", handlekurv.increase_by_list)
-    // handlekurv_seksjon.getElementsByClassName("knp-slett")[0].addEventListener("click", handlekurv.remove_by_list)
+    }
 }
 
-
+// produktene, lagret som objekter i en array
 const produkter = [{navn: "Rullekebab", id: "rullekebab", pris: 129, allergener: "Gluten, laktose, egg", src: "img/rullekebab.png"}, 
 {navn: "Kebab i pita", id: "kebabipita", pris: 99, allergener: "Gluten, laktose, egg", src: "img/pita.png"}, 
 {navn: "Falafel", id: "falafel", pris: 109, allergener: "Gluten, laktose, egg", src: "img/falafel.png"}, 
@@ -202,7 +171,7 @@ const produkter = [{navn: "Rullekebab", id: "rullekebab", pris: 129, allergener:
 
 const filler = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
 
-function main(){
+function main(){ // funksjon som lager alle produktene og viser dem på venstre side av skjermen
     var prod_Side = document.getElementById("products")
     for (let i = 0; i < produkter.length; i++) {
         let div = document.createElement("div")
@@ -237,13 +206,13 @@ function main(){
         div.appendChild(allergi)
     }
 }
-function legg_Til(ev) {
+function legg_Til(ev) { // funksjon for Legg Til-knappene. legger til produktene
     ev.preventDefault();
     add(ev.target.id)
     visHandlekurv()
 }
-main()
-window.addEventListener("DOMContentLoaded", ()=>{
+main()  // kjører funksjonen for å vise produktene
+window.addEventListener("DOMContentLoaded", ()=>{ // kjøres når siden har lastet ned. oppdaterer handlekurven og viser den
     init()
     vis_sum()
     visHandlekurv()
