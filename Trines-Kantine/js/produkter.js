@@ -1,7 +1,9 @@
+// lager en konstant for handlekurven, med en nøkkel som skal brukes for å få tilgang og en tom array
+// hentet inspirasjon om localstorage og funksjoner om dette fra https://gist.github.com/prof3ssorSt3v3/3e15d06a8128d6ca7deaa831a7a1e52b
 const handlekurv = {
     KEY: "egirejgrdkske",
     innhold: []
-} // lager en konstant for handlekurven, med en nøkkel som skal brukes for å få tilgang og en tom array
+} 
 
 function init(){ 
     // funksjon som kjøres da siden har lastet inn. sjekker om det er noe i localstorage og setter det i konstanten handlekurv
@@ -11,7 +13,7 @@ function init(){
     }
     sync() 
 }
-function sync(){ // oppdaterer localstorage
+function sync(){ // oppdaterer localstorage med hva som er i handlekurven
     let _handlekurv = JSON.stringify(handlekurv.innhold)
     localStorage.setItem(handlekurv.KEY, _handlekurv) 
 }
@@ -30,18 +32,18 @@ function add(id){ // legger ting til i handlekurven
         increase(id, 1); // er den allerede i handlekurven økes den kun med 1
     }else{ // ellers lages produktet og blir sendt inn i handlekurven
         let arr = produkter.filter(produkt=>{
-            if (produkt.id == id) {
+            if (produkt.id == id) { // finner det aktuelle produktet i produkter-konstanten
                 return true;
             }
         });
-        if (arr && arr[0]) {
+        if (arr && arr[0]) { // lager objektet og henter relevant informasjon fra produkter-konstanten
             let obj = {
                 id: arr[0].id,
                 navn: arr[0].navn,
                 antall: 1,
                 pris: arr[0].pris
             };
-            handlekurv.innhold.push(obj);
+            handlekurv.innhold.push(obj); // sender det nylagde produktet inn i handlekurven 
             sync();
             vis_sum()
         }
@@ -58,32 +60,16 @@ function increase(id, antall=1){ // funksjon for å øke antall i handlekurv. de
     vis_sum()
     vis_pris(id)
 }
-function reduce(id, antall=1){ // funksjon for å minke antall i handlekurv. defaulter til å minke med 1
-    handlekurv.innhold = handlekurv.innhold.map(item=>{
-        if (item.id === id) {
-            item.antall = parseInt(item.antall) - antall;
-        }return item;
-    });
-    handlekurv.innhold.forEach(item=>{ // dersom antallet blir 0, skal produktet fjernes fra handlekurven
-        if (item.id === id && item.antall === 0) {
-            remove(id)
-        };
-    });
-    sync();
-    visHandlekurv()
-    vis_sum()
-    vis_pris(id)
-}
 function change_by_list(event){ // trengtes egen funksjon for å øke og minke med input-listen, som trigges med eventlistener
     handlekurv.innhold = handlekurv.innhold.map(item=>{
         if (item.id === event.target.classList[1]) {
-            item.antall = event.target.value;
+            item.antall = event.target.value; // setter antallet til antallet i input-feltet
         }return item;
     });
     handlekurv.innhold.forEach(item=>{ // fjerner produktet om antallet blir 0 eller færre, og oppdaterer prisen
         if (item.id === event.target.classList[1] && item.antall <= 0) {
             remove(event.target.classList[1])
-        }else {
+        }if (item.id === event.target.classList[1] && item.antall > 0) {
             vis_pris(event.target.classList[1])
         }
     });
@@ -109,21 +95,6 @@ function remove_by_btn(event){ // egen funksjon for å fjerne produktet med FJER
     sync();
     visHandlekurv();
     vis_sum()
-}
-function empty(){ // funksjon for å tømme handlekurven. KAN FJERNES
-    handlekurv.innhold = [];
-    sync();
-}
-function sort(felt="navn"){ // kan fjernes!! bør kanskje også
-    let sortert = handlekurv.innhold.sort((a, b)=>{
-        if (a[felt] > b[felt]) {
-            return 1;
-        }else if (a[felt] < b[felt]) {
-            return -1;
-        }else{
-            return 0;
-        }
-    });return sortert; 
 }
 function vis_sum(){ // funksjon for å oppdatere summen av varene
     let sum_tekst = document.getElementById("sum")
@@ -189,7 +160,7 @@ function visHandlekurv() { // funksjon for å vise den oppdaterte handlekurven f
     }
 }
 
-
+// produktene, lagret som objekter i en array
 const produkter = [{navn: "Rullekebab", id: "rullekebab", pris: 129, allergener: "Gluten, laktose, egg", src: "img/rullekebab.png"}, 
 {navn: "Kebab i pita", id: "kebabipita", pris: 99, allergener: "Gluten, laktose, egg", src: "img/pita.png"}, 
 {navn: "Falafel", id: "falafel", pris: 109, allergener: "Gluten, laktose, egg", src: "img/falafel.png"}, 
@@ -240,7 +211,7 @@ function legg_Til(ev) { // funksjon for Legg Til-knappene. legger til produktene
     add(ev.target.id)
     visHandlekurv()
 }
-main()
+main()  // kjører funksjonen for å vise produktene
 window.addEventListener("DOMContentLoaded", ()=>{ // kjøres når siden har lastet ned. oppdaterer handlekurven og viser den
     init()
     vis_sum()

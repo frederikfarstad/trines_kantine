@@ -54,12 +54,13 @@
 .produkt_Boks > p{
     margin: 10px 0px;
 }
-@media (max-width: 1020px) {
+@media (max-width: 1000px) { /* dersom skjermbredden blir 1000px eller færre endres disse verdiene */
     .produkt_Boks > img{
         width: 100%;
     }
     .produkt_Boks{
         width: 250px;
+        margin: 8px 20px 8px 25px;
     }
 }
 
@@ -73,12 +74,13 @@
 #handlekurv_Boks{
     background-color: #555B6E;
     border-radius: 12px;
-    color: white !important;
     text-align: center;
     padding: 5px;
     width: 60%;
     margin: 20px auto;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: sticky;
+    top: 10px;
 }
 #handlekurv_Boks_Header{
     padding: 7.5px;
@@ -144,9 +146,11 @@
     margin: auto;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-@media (max-width: 1020px) {
-    #handlekurv{
-        width: 300px;
+@media (max-width: 1000px) { /* dersom skjermbredden blir 1000px eller mindre endres disse verdiene */
+    #handlekurv_Boks{
+        width: 275px;
+    }#handlekurv{
+        width: 80%;
     }
 }
 
