@@ -771,12 +771,6 @@ body{
 }
 
 
-#fasade{
-    display: block;
-    margin-left: auto;
-    margin-right: auto
-}
-
 #map{
     height: 400px;
         /* The height is 400 pixels */
@@ -805,6 +799,11 @@ body{
 }
 .shadow{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#header_about{
+    background: url('../img/restaurant_fasade.jpg') no-repeat center center/cover;
+    height: 60vh;
 }
 
 /* ---------------------------------------------------

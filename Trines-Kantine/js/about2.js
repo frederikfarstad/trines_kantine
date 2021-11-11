@@ -14,7 +14,7 @@ function initMap() {
     ["Monaco TK", 43.7387047, 7.427407799999999, 3],
     ["Oslo TK", 59.910500199999994, 10.7440664, 2],
     ["New York TK", 40.763497, -73.9788217, 1],
-    ["London TK", 47.3667782, 8.532605199999999, 6]
+    ["London TK", 47.3667782, 8.532605199999999, 6],
     ["Kabul TK", 34.53286124073453, 69.17328282584828, 7]
   ];
   
@@ -36,7 +36,7 @@ function initMap() {
   
     for (let i = 0; i < locations.length; i++) {
       const location = locations[i];
-  
+      
       new google.maps.Marker({
         position: { lat: location[1], lng: location[2] },
         map,
@@ -45,5 +45,6 @@ function initMap() {
         title: location[0],
         zIndex: location[3],
       });
+      console.log(location);
     }
   }
